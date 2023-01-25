@@ -28,36 +28,66 @@ class _HomePageState extends State<HomePage> {
           ClipPath(
             clipper: ClipPathClass(),
             child: Container(
-              height: 100,
+              height: 95,
               color: primaryColor,
             ),
           ),
           Container(
             margin: EdgeInsets.only(
-              top: 10,
-            ),
-            alignment: Alignment.center,
-            child: Image(
-              image: AssetImage(
-                'assets/pedikia_white.png',
-              ),
-              width: 100,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: defaultMargin + 30,
-              left: defaultMargin,
-              right: defaultMargin,
+              left: 10,
+              top: 20,
+              right: 10,
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
+                Image.asset(
+                  'assets/pedikia_white.png',
+                  width: 98,
+                ),
+                Container(
+                  width: 264,
+                  height: 34,
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    color: Colors.white54,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          style: subtitleTextStyle,
+                          decoration: InputDecoration.collapsed(
+                            hintText: 'Cari Layanan...',
+                            hintStyle: subtitleTextStyle,
+                          ),
+                        ),
+                      ),
+                      Icon(
+                        Icons.search,
+                        color: subtitleColor,
+                        size: 20,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(
+                    top: 90,
+                    left: defaultMargin,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hi,',
+                        'Halo,',
                         style: primaryTextStyle.copyWith(
                           fontSize: 20,
                           fontWeight: medium,
@@ -75,8 +105,8 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       );
@@ -126,17 +156,6 @@ class _HomePageState extends State<HomePage> {
                 left: 20,
                 right: 20,
               ),
-              child: Text(
-                'Kategori Layanan',
-                style: primaryTextStyle.copyWith(
-                  fontSize: 15,
-                  fontWeight: bold,
-                  color: Color(0xff333333),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
             ),
             Container(
               margin: EdgeInsets.only(
@@ -219,6 +238,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
+              margin: EdgeInsets.only(
+                bottom: 90,
+              ),
               child: Center(
                 child: Image.asset(
                   'assets/why.png',
