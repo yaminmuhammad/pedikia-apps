@@ -65,6 +65,7 @@ flutter:
   assets:
     - assets/
     - assets/icon_bantuan.png
+    - assets/image_therapist_1.png
     - assets/pedikia.png
     - assets/why.png
 
