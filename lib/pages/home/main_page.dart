@@ -254,14 +254,21 @@ class _MainPageState extends State<MainPage> {
     Widget HelpButton() {
       return FloatingActionButton(
         onPressed: () {},
-        child: Icon(
-          Icons.help,
-          color: Colors.white,
-          semanticLabel: 'Bantuan',
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(190),
+            bottomRight: Radius.circular(190),
+            topRight: Radius.circular(190),
+            // bottomLeft: Radius.circular(20),
+          ),
         ),
         backgroundColor: primaryColor,
         enableFeedback: true,
         tooltip: 'Bantuan',
+        child: Image.asset(
+          'assets/icon_bantuan.png',
+          // width: 90,
+        ),
       );
     }
 

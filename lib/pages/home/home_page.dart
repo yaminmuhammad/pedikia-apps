@@ -253,19 +253,30 @@ class _HomePageState extends State<HomePage> {
       );
     }
 
-    Widget HelpButton() {
-      return FloatingActionButton(
-        onPressed: () {},
-        child: Icon(
-          Icons.help,
-          color: Colors.white,
-          semanticLabel: 'Bantuan',
-        ),
-        backgroundColor: primaryColor,
-        enableFeedback: true,
-        tooltip: 'Bantuan',
-      );
-    }
+    // Widget HelpButton() {
+    //   return FloatingActionButton.extended(
+    //     onPressed: () {},
+    //     icon: Icon(
+    //       Icons.help,
+    //       color: Colors.white,
+    //       semanticLabel: 'Bantuan',
+    //     ),
+    //     shape: BeveledRectangleBorder(
+    //       borderRadius: BorderRadius.circular(10.0),
+    //     ),
+    //     backgroundColor: primaryColor,
+    //     enableFeedback: true,
+    //     tooltip: 'Bantuan',
+    //     label: Text(
+    //       'Bantuan',
+    //       style: primaryTextStyle.copyWith(
+    //         fontSize: 15,
+    //         fontWeight: bold,
+    //         color: Colors.white,
+    //       ),
+    //     ),
+    //   );
+    // }
 
     // Widget CustomBottomNav() {
     //   return BottomNavigationBar(
