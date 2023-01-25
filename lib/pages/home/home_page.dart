@@ -18,8 +18,6 @@ class _HomePageState extends State<HomePage> {
     'assets/banner_3.png',
   ];
 
-  // int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     Widget Header() {
@@ -133,12 +131,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 width: MediaQuery.of(context).size.width,
-                // margin: EdgeInsets.symmetric(horizontal: 5.0),
-                // decoration: BoxDecoration(
-                //   image: DecorationImage(
-                //     image: AssetImage('assets/banner.png'),
-                //   ),
-                // ),
               );
             },
           );
@@ -252,88 +244,6 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     }
-
-    // Widget HelpButton() {
-    //   return FloatingActionButton.extended(
-    //     onPressed: () {},
-    //     icon: Icon(
-    //       Icons.help,
-    //       color: Colors.white,
-    //       semanticLabel: 'Bantuan',
-    //     ),
-    //     shape: BeveledRectangleBorder(
-    //       borderRadius: BorderRadius.circular(10.0),
-    //     ),
-    //     backgroundColor: primaryColor,
-    //     enableFeedback: true,
-    //     tooltip: 'Bantuan',
-    //     label: Text(
-    //       'Bantuan',
-    //       style: primaryTextStyle.copyWith(
-    //         fontSize: 15,
-    //         fontWeight: bold,
-    //         color: Colors.white,
-    //       ),
-    //     ),
-    //   );
-    // }
-
-    // Widget CustomBottomNav() {
-    //   return BottomNavigationBar(
-    //     selectedItemColor: primaryColor,
-    //     currentIndex: currentIndex,
-    //     onTap: (value) {
-    //       setState(
-    //         () {
-    //           currentIndex = value;
-    //         },
-    //       );
-    //     },
-    //     // backgroundColor: primaryColor,
-    //     items: [
-    //       BottomNavigationBarItem(
-    //         icon: Image.asset(
-    //           'assets/icon_home.png',
-    //           width: 22,
-    //           color: currentIndex == 0 ? primaryColor : Color(0xffBDBDBD),
-    //         ),
-    //         label: 'Beranda',
-    //       ),
-    //       BottomNavigationBarItem(
-    //         icon: Image.asset(
-    //           'assets/icon_history.png',
-    //           width: 24,
-    //           color: currentIndex == 1 ? primaryColor : Color(0xffBDBDBD),
-    //         ),
-    //         label: 'Riwayat',
-    //       ),
-    //       BottomNavigationBarItem(
-    //         icon: Image.asset(
-    //           'assets/icon_profile.png',
-    //           width: 17,
-    //           color: currentIndex == 2 ? primaryColor : Color(0xffBDBDBD),
-    //         ),
-    //         label: 'Profil',
-    //       ),
-    //     ],
-    //   );
-    // }
-
-    // Widget Body() {
-    //   switch (currentIndex) {
-    //     case 0:
-    //       return HomePage();
-    //       break;
-    //     case 1:
-    //       return HistoryPage();
-    //       break;
-    //     case 2:
-    //       return ProfilePage();
-    //       break;
-    //     default:
-    //       return HomePage();
-    //   }
-    // }
 
     return Scaffold(
       body: SafeArea(

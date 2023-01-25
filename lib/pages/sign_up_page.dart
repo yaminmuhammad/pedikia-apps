@@ -146,19 +146,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       isExpanded: true,
                       borderRadius: BorderRadius.circular(12),
-
                       style: subtitleTextStyle.copyWith(
                         fontSize: 16,
                         fontWeight: medium,
                       ),
-                      // elevation: 16,
-                      // style: const TextStyle(color: primaryColor),
-                      // underline: Container(
-                      //   height: 2,
-                      //   color: primaryColor,
-                      // ),
                       onChanged: (String? value) {
-                        // This is called when the user selects an item.
                         setState(() {
                           dropdownValue = value!;
                         });
