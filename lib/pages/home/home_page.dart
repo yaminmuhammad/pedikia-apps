@@ -210,7 +210,7 @@ class _HomePageState extends State<HomePage> {
                 right: 20,
               ),
               child: Text(
-                'Tips',
+                'Mengapa harus Pedikia?',
                 style: primaryTextStyle.copyWith(
                   fontSize: 15,
                   fontWeight: bold,
@@ -218,32 +218,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Column(
-              children: [
-                // DUMMY TIPS
-                Container(
-                  child: Text('Tips pertama'),
+            Container(
+              child: Center(
+                child: Image.asset(
+                  'assets/why.png',
+                  width: 364,
                 ),
-                Container(
-                  child: Text('Tips pertama'),
-                ),
-                Container(
-                  child: Text('Tips kedua'),
-                ),
-                Container(
-                  child: Text('Tips ketiga'),
-                ),
-                Container(
-                  child: Text('Tips ketiga'),
-                ),
-                Container(
-                  child: Text('Tips keempat'),
-                ),
-                Container(
-                  child: Text('Tips kelima'),
-                ),
-              ],
-            )
+              ),
+            ),
           ],
         ),
       );
@@ -372,9 +354,9 @@ class ClipPathClass extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0, size.height - 80);
+    path.lineTo(0, size.height - 20);
     path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 80);
+        size.width / 2, size.height, size.width, size.height - 20);
     path.lineTo(size.width, 0);
     path.close();
     return path;
