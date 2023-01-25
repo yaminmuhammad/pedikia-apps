@@ -65,7 +65,7 @@ class _SignInPageState extends State<SignInPage> {
                               vertical: 28.0,
                             ),
                             child: Text(
-                              "Sign In",
+                              "Masuk",
                               style: titleTextStyle,
                             ),
                           ),
@@ -147,7 +147,7 @@ class _SignInPageState extends State<SignInPage> {
                                           },
                                         ),
                                         border: InputBorder.none,
-                                        hintText: 'Password',
+                                        hintText: 'Kata sandi',
                                         hintStyle: subtitleTextStyle,
                                       ),
                                     ),
@@ -175,13 +175,13 @@ class _SignInPageState extends State<SignInPage> {
                                           });
                                         },
                                       ),
-                                      Text("Remember me"),
+                                      Text("Ingat saya"),
                                     ],
                                   ),
                                 ],
                               ),
                               Text(
-                                "Forgot Password?",
+                                "Lupa kata sandi?",
                                 style: TextStyle(
                                   color: primaryColor,
                                 ),
@@ -203,7 +203,7 @@ class _SignInPageState extends State<SignInPage> {
                                 ),
                               ),
                               child: Text(
-                                'Login',
+                                'Masuk',
                                 style: whiteTextStyle.copyWith(
                                   fontSize: 16,
                                   fontWeight: medium,
@@ -224,7 +224,7 @@ class _SignInPageState extends State<SignInPage> {
                                 ),
                               ),
                               Text(
-                                "Or Sign In With",
+                                "Atau masuk dengan",
                                 style: TextStyle(fontSize: 16),
                               ),
                               Expanded(
@@ -260,13 +260,13 @@ class _SignInPageState extends State<SignInPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("Don't have an account yet?"),
+                              Text("Tidak punya akun?"),
                               SizedBox(
                                 width: 1,
                               ),
                               TextButton(
                                 child: Text(
-                                  "Sign up now",
+                                  "Daftar sekarang",
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
                                     decorationColor: Colors.blue,
