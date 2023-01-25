@@ -18,32 +18,32 @@ Color whiteColor = Color.fromARGB(255, 238, 236, 255);
 // Color primaryTextColor = Color(0xffF1F0F2);
 // Color secondaryTextColor = Color(0xff999999);
 
-TextStyle titleTextStyle = GoogleFonts.poppins(
+TextStyle titleTextStyle = GoogleFonts.roboto(
   fontSize: 24,
   fontWeight: semiBold,
 );
 
-TextStyle primaryTextStyle = GoogleFonts.poppins(
+TextStyle primaryTextStyle = GoogleFonts.roboto(
   color: primaryColor,
 );
 
-TextStyle secondaryTextStyle = GoogleFonts.poppins(
+TextStyle secondaryTextStyle = GoogleFonts.roboto(
   color: secondaryColor,
 );
 
-TextStyle subtitleTextStyle = GoogleFonts.poppins(
+TextStyle subtitleTextStyle = GoogleFonts.roboto(
   color: subtitleColor,
 );
 
-TextStyle whiteTextStyle = GoogleFonts.poppins(
+TextStyle whiteTextStyle = GoogleFonts.roboto(
   color: whiteColor,
 );
 
-// TextStyle priceTextStyle = GoogleFonts.poppins(
+// TextStyle priceTextStyle = GoogleFonts.roboto(
 //   color: priceColor,
 // );
 
-// TextStyle purpleTextStyle = GoogleFonts.poppins(
+// TextStyle purpleTextStyle = GoogleFonts.roboto(
 //   color: primaryColor,
 // );
 

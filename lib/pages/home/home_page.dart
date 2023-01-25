@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
           ClipPath(
             clipper: ClipPathClass(),
             child: Container(
-              height: 95,
+              height: 113,
               color: primaryColor,
             ),
           ),
@@ -376,9 +376,9 @@ class ClipPathClass extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0, size.height - 20);
+    path.lineTo(0, size.height - 40);
     path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 20);
+        size.width / 2, size.height, size.width, size.height - 40);
     path.lineTo(size.width, 0);
     path.close();
     return path;
