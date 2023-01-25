@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pedikia/pages/home/history_page.dart';
 import 'package:pedikia/pages/home/home_page.dart';
 import 'package:pedikia/pages/home/profile_page.dart';
+import 'package:pedikia/pages/home/tips_page.dart';
 import 'package:pedikia/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -287,9 +288,17 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
+              'assets/icon_tips.png',
+              width: 22,
+              color: currentIndex == 1 ? primaryColor : Color(0xffBDBDBD),
+            ),
+            label: 'Tips',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset(
               'assets/icon_history.png',
               width: 24,
-              color: currentIndex == 1 ? primaryColor : Color(0xffBDBDBD),
+              color: currentIndex == 2 ? primaryColor : Color(0xffBDBDBD),
             ),
             label: 'Riwayat',
           ),
@@ -297,7 +306,7 @@ class _MainPageState extends State<MainPage> {
             icon: Image.asset(
               'assets/icon_profile.png',
               width: 17,
-              color: currentIndex == 2 ? primaryColor : Color(0xffBDBDBD),
+              color: currentIndex == 3 ? primaryColor : Color(0xffBDBDBD),
             ),
             label: 'Profil',
           ),
@@ -311,9 +320,11 @@ class _MainPageState extends State<MainPage> {
           return HomePage();
           break;
         case 1:
+          return TipsPage();
+        case 2:
           return HistoryPage();
           break;
-        case 2:
+        case 3:
           return ProfilePage();
           break;
         default:
