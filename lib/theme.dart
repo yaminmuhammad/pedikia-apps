@@ -7,6 +7,7 @@ Color primaryColor = Color(0xffD4236B);
 Color secondaryColor = primaryColor.withOpacity(0.1); /* Warna form input */
 Color subtitleColor = Color(0xff504F5E);
 Color whiteColor = Color.fromARGB(255, 238, 236, 255);
+Color greyColor = Color.fromARGB(255, 187, 186, 186);
 
 TextStyle titleTextStyle = GoogleFonts.roboto(
   fontSize: 24,
