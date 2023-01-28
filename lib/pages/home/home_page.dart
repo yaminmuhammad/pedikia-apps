@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:pedikia/pages/home/construction_page.dart';
 import 'package:pedikia/pages/home/history_page.dart';
 import 'package:pedikia/pages/home/profile_page.dart';
 import 'package:pedikia/theme.dart';
@@ -158,21 +160,45 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  itemKategori(
-                    title: "Pedispa",
-                    icon: "assets/icon_pedispa.png",
+                  GestureDetector(
+                    onTap: () {},
+                    child: itemKategori(
+                      title: "Pedispa",
+                      icon: "assets/icon_pedispa.png",
+                    ),
                   ),
-                  itemKategori(
-                    title: "Pedisitter",
-                    icon: "assets/icon_pedisiter.png",
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(
+                        () => ConstructionsPage(),
+                      );
+                    },
+                    child: itemKategori(
+                      title: "Pedisitter",
+                      icon: "assets/icon_pedisiter.png",
+                    ),
                   ),
-                  itemKategori(
-                    title: "Pedibaby",
-                    icon: "assets/icon_pedibaby.png",
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(
+                        () => ConstructionsPage(),
+                      );
+                    },
+                    child: itemKategori(
+                      title: "Pedibaby",
+                      icon: "assets/icon_pedibaby.png",
+                    ),
                   ),
-                  itemKategori(
-                    title: "Pedikids",
-                    icon: "assets/icon_pedikids.png",
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(
+                        () => ConstructionsPage(),
+                      );
+                    },
+                    child: itemKategori(
+                      title: "Pedikids",
+                      icon: "assets/icon_pedikids.png",
+                    ),
                   ),
                 ],
               ),
@@ -190,23 +216,48 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(
+                        () => ConstructionsPage(),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pediary",
                       icon: "assets/icon_pediary.png",
                     ),
                   ),
-                  itemKategori(
-                    title: "Pedifood",
-                    icon: "assets/icon_pedifood.png",
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(
+                        () => ConstructionsPage(),
+                      );
+                    },
+                    child: itemKategori(
+                      title: "Pedifood",
+                      icon: "assets/icon_pedifood.png",
+                    ),
                   ),
-                  itemKategori(
-                    title: "Pedishop",
-                    icon: "assets/icon_pedishop.png",
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(
+                        () => ConstructionsPage(),
+                      );
+                    },
+                    child: itemKategori(
+                      title: "Pedishop",
+                      icon: "assets/icon_pedishop.png",
+                    ),
                   ),
-                  itemKategori(
-                    title: "Pedirental",
-                    icon: "assets/icon_pedirental.png",
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(
+                        () => ConstructionsPage(),
+                      );
+                    },
+                    child: itemKategori(
+                      title: "Pedirental",
+                      icon: "assets/icon_pedirental.png",
+                    ),
                   ),
                 ],
               ),

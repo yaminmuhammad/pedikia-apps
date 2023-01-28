@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:pedikia/theme.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
 
     Timer(
       Duration(seconds: 3),
-      () => Navigator.pushNamed(context, '/sign-in'),
+      () => Get.offNamed('/sign-in'),
     );
     super.initState();
   }
