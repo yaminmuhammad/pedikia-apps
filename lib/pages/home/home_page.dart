@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:pedikia/pages/categories_service_page.dart';
 import 'package:pedikia/pages/home/construction_page.dart';
 import 'package:pedikia/pages/home/history_page.dart';
 import 'package:pedikia/pages/home/profile_page.dart';
@@ -161,7 +162,11 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(
+                        () => CategoriesServicePage(),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pedispa",
                       icon: "assets/icon_pedispa.png",

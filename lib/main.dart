@@ -30,19 +30,18 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/sign-in',
           page: () => SignInPage(),
+          transition: Transition.cupertino,
         ),
         GetPage(
           name: '/sign-up',
           page: () => SignUpPage(),
+          transition: Transition.cupertino,
         ),
         GetPage(
           name: '/home',
           page: () => MainPage(),
+          transition: Transition.cupertino,
         ),
-        // GetPage(
-        //   name: '/construction',
-        //   page: () => ConstructionsPage(),
-        // )
       ],
     );
   }
