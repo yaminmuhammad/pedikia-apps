@@ -174,7 +174,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                             top: 10,
                           ),
                           child: Text(
-                            'Baby spa',
+                            'Baby Newborn Treatment',
                             style: primaryTextStyle.copyWith(
                               fontSize: 16,
                               color: Colors.black,
@@ -288,7 +288,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                       right: 10,
                     ),
                     child: Image.asset(
-                      'assets/image_baby1.png',
+                      'assets/image_baby2.png',
                       width: 70,
                     ),
                   ),
@@ -301,7 +301,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                             top: 10,
                           ),
                           child: Text(
-                            'Baby spa',
+                            'Baby and Kid’s Therapy',
                             style: primaryTextStyle.copyWith(
                               fontSize: 16,
                               color: Colors.black,
@@ -313,7 +313,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                             top: 10,
                           ),
                           child: Text(
-                            'Perawatan untuk bayi baru lahir',
+                            'Perawatan untuk anak dan bayi yang sedang sakit',
                             style: primaryTextStyle.copyWith(
                               fontSize: 10,
                               fontWeight: medium,
@@ -415,7 +415,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                       right: 10,
                     ),
                     child: Image.asset(
-                      'assets/image_baby1.png',
+                      'assets/image_baby3.png',
                       width: 70,
                     ),
                   ),
@@ -428,7 +428,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                             top: 10,
                           ),
                           child: Text(
-                            'Baby spa',
+                            'Baby and Kid’s Treatment',
                             style: primaryTextStyle.copyWith(
                               fontSize: 16,
                               color: Colors.black,
@@ -440,7 +440,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                             top: 10,
                           ),
                           child: Text(
-                            'Perawatan untuk bayi baru lahir',
+                            'Perawatan untuk anak dan bayi dari usia 0-6 tahun',
                             style: primaryTextStyle.copyWith(
                               fontSize: 10,
                               fontWeight: medium,
@@ -541,7 +541,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                       right: 10,
                     ),
                     child: Image.asset(
-                      'assets/image_baby1.png',
+                      'assets/image_baby4.png',
                       width: 70,
                     ),
                   ),
@@ -554,7 +554,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                             top: 10,
                           ),
                           child: Text(
-                            'Baby spa',
+                            'Pre & Post Natal Care',
                             style: primaryTextStyle.copyWith(
                               fontSize: 16,
                               color: Colors.black,
@@ -566,7 +566,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                             top: 10,
                           ),
                           child: Text(
-                            'Perawatan untuk bayi baru lahir',
+                            'Perawatan untuk ibu hamil dan menyusui',
                             style: primaryTextStyle.copyWith(
                               fontSize: 10,
                               fontWeight: medium,
@@ -682,7 +682,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                   style: primaryTextStyle.copyWith(
                     fontSize: 18,
                     color: Colors.black,
-                    fontWeight: medium,
+                    fontWeight: bold,
                   ),
                 ),
               ),
