@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/pages/home/construction_page.dart';
 import 'package:pedikia/pages/home/main_page.dart';
 import 'package:pedikia/pages/sign_in_page.dart';
 import 'package:pedikia/pages/sign_up_page.dart';
