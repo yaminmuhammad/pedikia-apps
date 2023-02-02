@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pedikia/pages/price_service_page.dart';
 import 'package:pedikia/theme.dart';
 
 class CategoriesServicePage extends StatefulWidget {
@@ -141,124 +143,129 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
           children: [
             // Single list item 1
 
-            Container(
-              height: 80,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(0, 3)),
-                ],
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      right: 10,
+            GestureDetector(
+              onTap: () {
+                Get.to(() => PriceServicePage());
+              },
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 4,
+                        offset: Offset(0, 3)),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                        right: 10,
+                      ),
+                      child: Image.asset(
+                        'assets/image_baby1.png',
+                        width: 70,
+                      ),
                     ),
-                    child: Image.asset(
-                      'assets/image_baby1.png',
-                      width: 70,
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(
-                            top: 10,
-                          ),
-                          child: Text(
-                            'Baby Newborn Treatment',
-                            style: primaryTextStyle.copyWith(
-                              fontSize: 16,
-                              color: Colors.black,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: 10,
+                            ),
+                            child: Text(
+                              'Baby Newborn Treatment',
+                              style: primaryTextStyle.copyWith(
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(
-                            top: 10,
-                          ),
-                          child: Text(
-                            'Perawatan untuk bayi baru lahir',
-                            style: primaryTextStyle.copyWith(
-                              fontSize: 10,
-                              fontWeight: medium,
-                              color: Colors.black,
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: 5,
+                            ),
+                            child: Text(
+                              'Perawatan untuk bayi baru lahir',
+                              style: primaryTextStyle.copyWith(
+                                fontSize: 10,
+                                fontWeight: medium,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(
-                            top: 8,
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: 8,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(
+                                    left: 4,
+                                    right: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      color: Color(0xffD9D9D9),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Baby Massage',
+                                    style: primaryTextStyle.copyWith(
+                                        fontSize: 10, color: Color(0xff333333)),
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(
+                                    left: 4,
+                                    right: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      color: Color(0xffD9D9D9),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Baby Haircut',
+                                    style: primaryTextStyle.copyWith(
+                                        fontSize: 10, color: Color(0xff333333)),
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(
+                                    left: 4,
+                                    right: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      color: Color(0xffD9D9D9),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Massage Tuna',
+                                    style: primaryTextStyle.copyWith(
+                                        fontSize: 10, color: Color(0xff333333)),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.only(
-                                  left: 4,
-                                  right: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                    color: Color(0xffD9D9D9),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Baby Massage',
-                                  style: primaryTextStyle.copyWith(
-                                      fontSize: 10, color: Color(0xff333333)),
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(
-                                  left: 4,
-                                  right: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                    color: Color(0xffD9D9D9),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Baby Haircut',
-                                  style: primaryTextStyle.copyWith(
-                                      fontSize: 10, color: Color(0xff333333)),
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(
-                                  left: 4,
-                                  right: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                    color: Color(0xffD9D9D9),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Massage Tuna',
-                                  style: primaryTextStyle.copyWith(
-                                      fontSize: 10, color: Color(0xff333333)),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
 
@@ -310,7 +317,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                            top: 10,
+                            top: 5,
                           ),
                           child: Text(
                             'Perawatan untuk anak dan bayi yang sedang sakit',
@@ -437,7 +444,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                            top: 10,
+                            top: 5,
                           ),
                           child: Text(
                             'Perawatan untuk anak dan bayi dari usia 0-6 tahun',
@@ -563,7 +570,7 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                            top: 10,
+                            top: 5,
                           ),
                           child: Text(
                             'Perawatan untuk ibu hamil dan menyusui',

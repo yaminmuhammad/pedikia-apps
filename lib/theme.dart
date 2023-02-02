@@ -10,6 +10,9 @@ Color subtitleColor = Color(0xff504F5E);
 Color whiteColor = Color.fromARGB(255, 238, 236, 255);
 Color greyColor = Color.fromARGB(255, 187, 186, 186);
 
+Color priceColor = Color(0xff6FCF97);
+Color timeColor = Color(0xffFF9B9B);
+
 TextStyle titleTextStyle = GoogleFonts.roboto(
   fontSize: 24,
   fontWeight: semiBold,
