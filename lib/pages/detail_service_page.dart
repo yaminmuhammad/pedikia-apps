@@ -157,11 +157,11 @@ class DetailServicePage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Color(0xffF2F2F2),
                 borderRadius: BorderRadius.circular(
-                  10,
+                  30,
                 ),
               ),
               child: Container(
-                padding: EdgeInsets.all(3),
+                padding: EdgeInsets.all(8),
                 child: Text(
                   textAlign: TextAlign.center,
                   'Layanan pijat untuk bayi guna merangsang pertumbuhan dan perkembangan motorik bayi. Layanan ini diperuntukkan untuk bayi dan anak usia 0-2 tahun. ',
@@ -172,6 +172,34 @@ class DetailServicePage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                children: [
+                  Text('Manfaat lainnya diantaranya:'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                  Text('\u2022 Bullet Text'),
+                ],
+              ),
+            ),
           ],
         ),
       );
@@ -179,6 +207,32 @@ class DetailServicePage extends StatelessWidget {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
+      bottomSheet: Container(
+        margin: EdgeInsets.only(
+          left: 20.0,
+          right: 20.0,
+          bottom: 20.0,
+        ),
+        height: 40.0,
+        width: 364,
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          ),
+          child: Text(
+            'Pesan Sekarang',
+            style: primaryTextStyle.copyWith(
+              fontSize: 16.0,
+              fontWeight: bold,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
         title: Text(
           'Detail Service',
@@ -203,6 +257,9 @@ class DetailServicePage extends StatelessWidget {
         elevation: 0.0,
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.only(
+          bottom: 100.0,
+        ),
         child: Column(
           children: [
             carouselHeader(),
