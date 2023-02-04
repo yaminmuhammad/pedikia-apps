@@ -115,30 +115,33 @@ class _HomePageState extends State<HomePage> {
 
     Widget Carousel() {
       return Container(
-          child: CarouselSlider(
-        options: CarouselOptions(
-          height: 200.0,
-          enlargeCenterPage: true,
-          autoPlay: true,
-          initialPage: 0,
-          pauseAutoPlayOnTouch: true,
-          autoPlayInterval: Duration(seconds: 3),
-        ),
-        items: imgLists.map((i) {
-          return Builder(
-            builder: (BuildContext context) {
-              return Container(
-                child: Center(
-                  child: Image.asset(
-                    i,
-                  ),
-                ),
-                width: MediaQuery.of(context).size.width,
+        child: CarouselSlider(
+          options: CarouselOptions(
+            height: 200.0,
+            enlargeCenterPage: true,
+            autoPlay: true,
+            initialPage: 0,
+            pauseAutoPlayOnTouch: true,
+            autoPlayInterval: Duration(seconds: 3),
+          ),
+          items: imgLists.map(
+            (i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Container(
+                    child: Center(
+                      child: Image.asset(
+                        i,
+                      ),
+                    ),
+                    width: MediaQuery.of(context).size.width,
+                  );
+                },
               );
             },
-          );
-        }).toList(),
-      ));
+          ).toList(),
+        ),
+      );
     }
 
     Widget Menu() {

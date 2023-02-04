@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pedikia/pages/detail_service_page.dart';
 import 'package:pedikia/theme.dart';
 
 class PriceServicePage extends StatefulWidget {
@@ -66,7 +68,9 @@ class _PriceServicePageState extends State<PriceServicePage> {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => DetailServicePage());
+              },
               child: Container(
                 height: 90,
                 decoration: BoxDecoration(
