@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pedikia/theme.dart';
+import 'package:pedikia/widget/bullet_widget.dart';
 
 class DetailServicePage extends StatelessWidget {
   const DetailServicePage({super.key});
@@ -86,7 +87,7 @@ class DetailServicePage extends StatelessWidget {
                   height: 20,
                   alignment: Alignment.center,
                   child: Text(
-                    'Baby Spa',
+                    '90 Menit',
                     style: primaryTextStyle.copyWith(
                       fontSize: 11.0,
                       color: priceColor,
@@ -104,7 +105,7 @@ class DetailServicePage extends StatelessWidget {
                   height: 20,
                   alignment: Alignment.center,
                   child: Text(
-                    'Baby Spa',
+                    'Handuk',
                     style: primaryTextStyle.copyWith(
                       fontSize: 11.0,
                       color: priceColor,
@@ -122,7 +123,7 @@ class DetailServicePage extends StatelessWidget {
                   height: 20,
                   alignment: Alignment.center,
                   child: Text(
-                    'Baby Spa',
+                    'Baby Lotion',
                     style: primaryTextStyle.copyWith(
                       fontSize: 11.0,
                       color: priceColor,
@@ -140,7 +141,7 @@ class DetailServicePage extends StatelessWidget {
                   height: 20,
                   alignment: Alignment.center,
                   child: Text(
-                    'Baby Spa',
+                    'Matrass',
                     style: primaryTextStyle.copyWith(
                       fontSize: 11.0,
                       color: priceColor,
@@ -177,28 +178,30 @@ class DetailServicePage extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.centerLeft,
-              child: Column(
-                children: [
-                  Text('Manfaat lainnya diantaranya:'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                  Text('\u2022 Bullet Text'),
-                ],
+              child: Text(
+                'Manfaat lainnya diantaranya:',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 15,
+                  fontWeight: bold,
+                  color: Color(0xff333333),
+                ),
               ),
+            ),
+            Column(
+              children: [
+                BulletList(
+                  [
+                    'Meningkatkan frekuensi menyusu',
+                    'Meningkatkan berat badan bayi',
+                    'Membantu bayi untuk berlatih relaksasi ',
+                    'Membantu bayi untuk tidur dengan lelap dan lama',
+                    'Membuat ikatan/bonding dengan ibu',
+                    'Meningkatkan kemampuan sensorik dan motorik bayi',
+                    'Membantu melancarkan sistem pencernaan bayi',
+                    'Mencegah bayi mengalami tantrum (kehilangan kontrol emosional yang mendadak pada bayi)'
+                  ],
+                ),
+              ],
             ),
           ],
         ),
@@ -240,7 +243,6 @@ class DetailServicePage extends StatelessWidget {
             fontSize: 18.0,
             fontWeight: bold,
             color: Colors.white,
-            backgroundColor: primaryColor.withOpacity(0.5),
           ),
         ),
         centerTitle: true,
