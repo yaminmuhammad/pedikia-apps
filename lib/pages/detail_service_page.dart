@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:pedikia/pages/checkout_page.dart';
 import 'package:pedikia/theme.dart';
 import 'package:pedikia/widget/bullet_widget.dart';
 
@@ -219,7 +221,9 @@ class DetailServicePage extends StatelessWidget {
         height: 40.0,
         width: 364,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => CheckoutPage());
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: primaryColor,
             shape: RoundedRectangleBorder(
@@ -227,7 +231,7 @@ class DetailServicePage extends StatelessWidget {
             ),
           ),
           child: Text(
-            'Pesan Sekarang',
+            'Pilih',
             style: primaryTextStyle.copyWith(
               fontSize: 16.0,
               fontWeight: bold,

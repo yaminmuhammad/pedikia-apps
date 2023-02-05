@@ -20,7 +20,7 @@ class BulletList extends StatelessWidget {
                 '\u2022',
                 style: TextStyle(
                   fontSize: 16,
-                  height: 1.45,
+                  height: 1.25,
                 ),
               ),
               SizedBox(
@@ -35,7 +35,7 @@ class BulletList extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       color: Color(0xff333333),
-                      height: 1.45,
+                      height: 1.25,
                     ),
                   ),
                 ),

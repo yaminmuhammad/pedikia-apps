@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:pedikia/pages/detail_service_page.dart';
 import 'package:pedikia/theme.dart';
 
-class PriceServicePage extends StatefulWidget {
-  const PriceServicePage({super.key});
+class ListServicePage extends StatefulWidget {
+  const ListServicePage({super.key});
 
   @override
-  State<PriceServicePage> createState() => _PriceServicePageState();
+  State<ListServicePage> createState() => _ListServicePageState();
 }
 
-class _PriceServicePageState extends State<PriceServicePage> {
+class _ListServicePageState extends State<ListServicePage> {
   @override
   Widget build(BuildContext context) {
     Widget headerWarn() {
@@ -43,7 +43,7 @@ class _PriceServicePageState extends State<PriceServicePage> {
                   left: 10,
                 ),
                 child: Text(
-                  'Silahkan pilih layanan yang diinginkan dengan klik beberapa paket yang disediakan oleh pedikia',
+                  'Silahkan pilih layanan yang diinginkan dengan klik salah satu paket yang disediakan oleh pedikia',
                   style: primaryTextStyle.copyWith(
                     fontSize: 12,
                     fontWeight: bold,
