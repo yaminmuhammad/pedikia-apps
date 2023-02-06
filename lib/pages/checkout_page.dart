@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:pedikia/theme.dart';
 
 class CheckoutPage extends StatefulWidget {
@@ -9,6 +10,16 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
+  bool isChecked = false;
+  String _date = "Not set";
+  String _time = "Not set";
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget selectedService() {
@@ -110,7 +121,202 @@ class _CheckoutPageState extends State<CheckoutPage> {
       );
     }
 
+    Widget addressInput() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30.0,
+          left: 20.0,
+          right: 20.0,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Masukkan Alamat Lengkap',
+              style: primaryTextStyle.copyWith(
+                fontSize: 14,
+                fontWeight: bold,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: 10,
+              ),
+              // height: 90,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 4,
+                      offset: Offset(0, 3)),
+                ],
+              ),
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: 10.0,
+                  right: 10.0,
+                ),
+                child: TextField(
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 12,
+                    color: Color(0xff4F4F4F),
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'Masukkan Alamat Lengkap',
+                    hintStyle: primaryTextStyle.copyWith(
+                      fontSize: 12,
+                      color: Color(0xff4F4F4F),
+                    ),
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget dateInput() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30.0,
+          left: 20.0,
+          right: 20.0,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Tanggal Reservasi',
+              style: primaryTextStyle.copyWith(
+                fontSize: 14,
+                fontWeight: bold,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: 10,
+              ),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 4,
+                      offset: Offset(0, 3)),
+                ],
+              ),
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: 10.0,
+                  right: 10.0,
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    DatePicker.showDateTimePicker(context,
+                        showTitleActions: true,
+                        minTime: DateTime.now(),
+                        maxTime: DateTime(2024, 6, 7, 05, 09),
+                        onChanged: (date) {
+                      print('change $date in time zone ' +
+                          date.timeZoneOffset.inHours.toString());
+                      _date = date.timeZoneOffset.inHours.toString();
+                    }, onConfirm: (date) {
+                      _date = date.timeZoneOffset.inHours.toString();
+                      print('confirm $date');
+                    }, locale: LocaleType.id, currentTime: DateTime.now());
+                    setState(() {});
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.edit_calendar_rounded,
+                        color: primaryColor,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Pilih Tanggal Reservasi',
+                        style: TextStyle(color: primaryColor),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget confirmBox() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30.0,
+          left: 20.0,
+          right: 20.0,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                top: 10,
+              ),
+              // height: 90,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 4,
+                      offset: Offset(0, 3)),
+                ],
+              ),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Saya mengerti bahwa Pedikia mengawasi dan bertindak tegas terhadap segala pelanggaran, termasuk pelecehan seksual sesuai hukum dan undang-undang yang berlaku.',
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 12,
+                          color: Color(0xff4F4F4F),
+                        ),
+                      ),
+                    ),
+                    Checkbox(
+                      checkColor: Colors.white,
+                      activeColor: primaryColor,
+                      value: isChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isChecked = value!;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomSheet: Container(
         margin: EdgeInsets.only(
           left: 20.0,
@@ -166,6 +372,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
         child: Column(
           children: [
             selectedService(),
+            addressInput(),
+            dateInput(),
+            confirmBox(),
           ],
         ),
       ),

@@ -168,6 +168,7 @@ class _SignInPageState extends State<SignInPage> {
                                     children: [
                                       Checkbox(
                                         checkColor: Colors.white,
+                                        activeColor: primaryColor,
                                         value: isChecked,
                                         onChanged: (bool? value) {
                                           setState(() {
