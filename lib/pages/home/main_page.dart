@@ -4,7 +4,10 @@ import 'package:pedikia/pages/home/home_page.dart';
 import 'package:pedikia/pages/home/profile_page.dart';
 import 'package:pedikia/pages/home/tips_page.dart';
 import 'package:pedikia/theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+
+import 'help_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -20,7 +23,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     Widget HelpButton() {
       return FloatingActionButton(
-        onPressed: () {},
+        onPressed: () { Navigator.push(context, CupertinoPageRoute(builder: (context) => HelpPage())); },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(190),
