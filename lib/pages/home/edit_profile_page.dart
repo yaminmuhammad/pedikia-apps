@@ -100,12 +100,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 decoration: InputDecoration(
                                   alignLabelWithHint: true,
                                   labelText: 'Nama',
+                                  labelStyle: TextStyle(
+                                      color: Colors.black.withOpacity(0.7)
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: const BorderSide(
                                       color: Color.fromARGB(1, 187, 186, 186),
                                       width: 1.5,
                                     ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: BorderSide(color: primaryColor)
                                   ),
                                 ),
                               ),
@@ -128,12 +135,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 decoration: InputDecoration(
                                   alignLabelWithHint: true,
                                   labelText: 'Email',
+                                  labelStyle: TextStyle(
+                                      color: Colors.black.withOpacity(0.7)
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: const BorderSide(
                                       color: Color.fromARGB(1, 187, 186, 186),
                                       width: 1.5,
                                     ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: BorderSide(color: primaryColor)
                                   ),
                                 ),
                               ),
@@ -156,12 +170,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 decoration: InputDecoration(
                                   alignLabelWithHint: true,
                                   labelText: 'Nomor Handphone/WhatsApp',
+                                  labelStyle: TextStyle(
+                                      color: Colors.black.withOpacity(0.7)
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: const BorderSide(
                                       color: Color.fromARGB(1, 187, 186, 186),
                                       width: 1.5,
                                     ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: BorderSide(color: primaryColor)
                                   ),
                                 ),
                               ),
@@ -185,12 +206,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 decoration: InputDecoration(
                                   alignLabelWithHint: true,
                                   labelText: 'Alamat Lengkap',
+                                  labelStyle: TextStyle(
+                                      color: Colors.black.withOpacity(0.7)
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: const BorderSide(
                                       color: Color.fromARGB(1, 187, 186, 186),
                                       width: 1.5,
                                     ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: BorderSide(color: primaryColor)
                                   ),
                                 ),
                               ),
