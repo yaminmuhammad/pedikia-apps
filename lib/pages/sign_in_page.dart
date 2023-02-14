@@ -71,88 +71,87 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           Container(
                             height: 50,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 16,
-                            ),
                             decoration: BoxDecoration(
-                              color: secondaryColor,
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Center(
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.email,
-                                    color: primaryColor,
-                                    size: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 16,
-                                  ),
-                                  Expanded(
-                                    child: TextFormField(
-                                      style: subtitleTextStyle,
-                                      decoration: InputDecoration.collapsed(
-                                        hintText: 'Email',
-                                        hintStyle: subtitleTextStyle,
+                              child: Expanded(
+                                child: TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  style: subtitleTextStyle,
+                                  decoration: InputDecoration(
+                                    alignLabelWithHint: true,
+                                    labelText: 'Email',
+                                    labelStyle: TextStyle(
+                                        color: Colors.black.withOpacity(0.7)
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: const BorderSide(
+                                        color: Color.fromARGB(1, 187, 186, 186),
+                                        width: 1.5,
                                       ),
                                     ),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide(color: primaryColor)
+                                    ),
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           ),
                           SizedBox(height: 20.0),
                           Container(
                             height: 50,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 16,
-                            ),
                             decoration: BoxDecoration(
-                              color: secondaryColor,
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Center(
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.lock,
-                                    color: primaryColor,
-                                    size: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 16,
-                                  ),
-                                  Expanded(
-                                    child: TextFormField(
-                                      style: subtitleTextStyle,
-                                      obscureText: _isObscured,
-                                      decoration: InputDecoration(
-                                        suffixIcon: IconButton(
-                                          padding: EdgeInsetsDirectional.only(
-                                              end: 12),
-                                          icon: _isObscured
-                                              ? Icon(
-                                                  Icons.visibility,
-                                                  color: primaryColor,
-                                                )
-                                              : Icon(
-                                                  Icons.visibility_off_outlined,
-                                                  color: primaryColor,
-                                                ),
-                                          onPressed: () {
-                                            setState(() {
-                                              _isObscured = !_isObscured;
-                                            });
-                                          },
-                                        ),
-                                        border: InputBorder.none,
-                                        hintText: 'Kata sandi',
-                                        hintStyle: subtitleTextStyle,
+                              child: Expanded(
+                                child: TextFormField(
+                                  keyboardType: TextInputType.visiblePassword,
+                                  style: subtitleTextStyle,
+                                  obscureText: _isObscured,
+                                  decoration: InputDecoration(
+                                    alignLabelWithHint: true,
+                                    labelText: 'Kata sandi',
+                                    labelStyle: TextStyle(
+                                        color: Colors.black.withOpacity(0.7)
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: const BorderSide(
+                                        color: Color.fromARGB(1, 187, 186, 186),
+                                        width: 1.5,
                                       ),
                                     ),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide(color: primaryColor)
+                                    ),
+                                    suffixIcon: IconButton(
+                                      padding: EdgeInsetsDirectional.only(
+                                          end: 12),
+                                      icon: _isObscured
+                                          ? Icon(
+                                        Icons.visibility_outlined,
+                                        color: Colors.black.withOpacity(0.5),
+                                      )
+                                          : Icon(
+                                        Icons.visibility_off_outlined,
+                                        color: Colors.black.withOpacity(0.5),
+                                      ),
+                                      onPressed: () {
+                                        setState(() {
+                                          _isObscured = !_isObscured;
+                                        });
+                                      },
+                                    ),
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           ),
@@ -216,7 +215,6 @@ class _SignInPageState extends State<SignInPage> {
                             height: 10,
                           ),
                           Row(
-                            // ignore: prefer_const_literals_to_create_immutables
                             children: <Widget>[
                               Expanded(
                                 child: Container(
