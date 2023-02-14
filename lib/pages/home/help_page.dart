@@ -20,7 +20,7 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    TabController _tabCtrl = TabController(length: 4, vsync: this);
+    TabController tabCtrl = TabController(length: 4, vsync: this);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -87,12 +87,12 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                               style: TextStyle(fontSize: 18, fontWeight: medium),
                             ),
                           ),
-                          Container(
+                          SizedBox(
                               height: 30,
                               child: Align(
                                   alignment: Alignment.centerLeft,
                                   child: TabBar(
-                                      controller: _tabCtrl,
+                                      controller: tabCtrl,
                                       labelColor: Colors.white,
                                       unselectedLabelColor: Colors.grey,
                                       isScrollable: true,
@@ -102,7 +102,7 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                         ),
                                         color: primaryColor,
                                       ),
-                                      tabs: [
+                                      tabs: const [
                                         Tab(text: "Layanan"),
                                         Tab(text: "Cara Reservasi"),
                                         Tab(text: "Lokasi"),
@@ -113,11 +113,11 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                           ),
                           SizedBox(height: 20.0),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                                 width: double.maxFinite,
                                 height: double.maxFinite,
                                 child: TabBarView(
-                                  controller: _tabCtrl,
+                                  controller: tabCtrl,
                                   children: [
                                     ListView(
                                       children: ListTile.divideTiles( //          <-- ListTile.divideTiles
