@@ -21,14 +21,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: IconButton(
-      //     icon: const Icon(Icons.arrow_back, color: Colors.black),
-      //     onPressed: () => Navigator.of(context).pop(true),
-      //   ),
-      //   backgroundColor: Colors.white,
-      //   elevation: 0,
-      // ),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
