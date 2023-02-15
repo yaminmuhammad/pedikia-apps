@@ -458,7 +458,7 @@ class _SignUpPageState extends State<SignUpPage> {
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(left: 200, top: 60),
               child: Image.asset(
-                "assets/baby_2.png",
+                "assets/icon_register.png",
                 height: MediaQuery.of(context).size.height / 5,
               ),
             ),

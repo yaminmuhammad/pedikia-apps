@@ -288,7 +288,7 @@ class _SignInPageState extends State<SignInPage> {
                 width: MediaQuery.of(context).size.width,
                 padding: EdgeInsets.only(left: 200, top: 180),
                 child: Image.asset(
-                  "assets/baby_sleep.png",
+                  "assets/icon_login.png",
                   height: MediaQuery.of(context).size.height / 5,
                 ),
               ),

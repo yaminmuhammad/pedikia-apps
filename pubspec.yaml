@@ -69,6 +69,9 @@ flutter:
     - assets/baby_sleep.png
     - assets/facebook.png
     - assets/google.png
+    - assets/icon_login.png
+    - assets/icon_register.png
+    - assets/image_pp.png
     - assets/pedikia.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
