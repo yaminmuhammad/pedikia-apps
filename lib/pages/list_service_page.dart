@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pedikia/pages/detail_service_page.dart';
 import 'package:pedikia/theme.dart';
 
@@ -69,7 +68,12 @@ class _ListServicePageState extends State<ListServicePage> {
           children: [
             GestureDetector(
               onTap: () {
-                Get.to(() => DetailServicePage());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailServicePage(),
+                  ),
+                );
               },
               child: Container(
                 height: 90,

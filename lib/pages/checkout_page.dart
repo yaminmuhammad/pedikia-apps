@@ -1,5 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:lottie/lottie.dart';
+import 'package:material_dialogs/material_dialogs.dart';
+import 'package:material_dialogs/widgets/buttons/icon_button.dart';
+import 'package:pedikia/pages/home/home_page.dart';
+import 'package:pedikia/pages/home/main_page.dart';
 import 'package:pedikia/theme.dart';
 
 class CheckoutPage extends StatefulWidget {
@@ -221,6 +227,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 child: TextButton(
                   onPressed: () {
                     DatePicker.showDateTimePicker(context,
+                        theme: DatePickerTheme(
+                          doneStyle: TextStyle(color: primaryColor),
+                        ),
                         showTitleActions: true,
                         minTime: DateTime.now(),
                         maxTime: DateTime(2024, 6, 7, 05, 09),
@@ -315,6 +324,59 @@ class _CheckoutPageState extends State<CheckoutPage> {
       );
     }
 
+    Widget butttonDialog(BuildContext context) {
+      return MaterialButton(
+        minWidth: 300,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        color: primaryColor,
+        onPressed: () => Dialogs.materialDialog(
+          color: Colors.white,
+          msg: 'Terapis akan segera menghubungi anda',
+          title: 'Selamat, reservasi berhasil dibuat!',
+          titleStyle: primaryTextStyle.copyWith(
+            fontSize: 15,
+            fontWeight: bold,
+          ),
+          customView: Container(
+            height: 200,
+            width: 100,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/baby_happy.png'),
+              ),
+            ),
+          ),
+          dialogWidth: kIsWeb ? 0.3 : null,
+          context: context,
+          actions: [
+            IconsButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+              text: 'Oke',
+              color: primaryColor,
+              textStyle: primaryTextStyle.copyWith(
+                fontSize: 20,
+                fontWeight: medium,
+                color: Colors.white,
+              ),
+              iconColor: Colors.white,
+            ),
+          ],
+        ),
+        child: Text(
+          "Reservasi",
+          style: primaryTextStyle.copyWith(
+            fontSize: 20,
+            fontWeight: medium,
+            color: Colors.white,
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       bottomSheet: Container(
@@ -325,22 +387,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
         ),
         height: 40.0,
         width: 364,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: primaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-          ),
-          child: Text(
-            'Reservasi',
-            style: primaryTextStyle.copyWith(
-              fontSize: 16.0,
-              fontWeight: bold,
-              color: Colors.white,
-            ),
-          ),
+        child: butttonDialog(
+          context,
         ),
       ),
       appBar: AppBar(

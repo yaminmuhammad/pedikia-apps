@@ -37,9 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   carousel_slider: ^4.2.1
-  get: ^4.6.5
   lottie: ^2.2.0
   flutter_datetime_picker: ^1.5.1
+  material_dialogs: ^1.1.4
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pedikia/pages/home/home_page.dart';
 import 'package:pedikia/theme.dart';
@@ -10,8 +9,10 @@ class ConstructionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Center(
+      body: Expanded(
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -26,9 +27,7 @@ class ConstructionsPage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 20),
                 child: ElevatedButton(
-                  onPressed: () {
-                    Get.back();
-                  },
+                  onPressed: () {},
                   child: Text(
                     'Kembali ke Home',
                     style: primaryTextStyle.copyWith(
