@@ -4,14 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:pedikia/theme.dart';
 
 class HelpPage extends StatefulWidget {
-  const HelpPage({super.key});
-
   @override
   State<HelpPage> createState() => _HelpPageState();
 }
 
 class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -45,14 +42,11 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
-                      "Apa yang bisa kami bantu?",
+                  Text("Apa yang bisa kami bantu?",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
-                          fontWeight: medium
-                      )
-                  ),
+                          fontWeight: medium)),
                   SizedBox(
                     height: 50,
                   ),
@@ -84,7 +78,8 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                             ),
                             child: Text(
                               "Pertanyaan yang sering ditanyakan",
-                              style: TextStyle(fontSize: 18, fontWeight: medium),
+                              style:
+                                  TextStyle(fontSize: 18, fontWeight: medium),
                             ),
                           ),
                           SizedBox(
@@ -107,10 +102,7 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                         Tab(text: "Cara Reservasi"),
                                         Tab(text: "Lokasi"),
                                         Tab(text: "Kelola Akun")
-                                      ]
-                                  )
-                              )
-                          ),
+                                      ]))),
                           SizedBox(height: 20.0),
                           Flexible(
                             child: SizedBox(
@@ -120,7 +112,8 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                   controller: tabCtrl,
                                   children: [
                                     ListView(
-                                      children: ListTile.divideTiles( //          <-- ListTile.divideTiles
+                                      children: ListTile.divideTiles(
+                                          //          <-- ListTile.divideTiles
                                           color: Colors.black,
                                           context: context,
                                           tiles: [
@@ -129,73 +122,69 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                                   'Apa itu aplikasi Pedikia?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Bagaimana cara reservasi terapis?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah pembayaran dapat dilakukan secara digital?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah terapis di Pedikia sudah berpengalaman?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah ada jaminan uang kembali jika anak tidak mau dispa?',
@@ -203,40 +192,39 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                                     fontSize: 12,
                                                     fontWeight: medium,
                                                   ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apa itu aplikasi Pedikia?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
-                                          ]
-                                      ).toList(),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
+                                          ]).toList(),
                                     ),
                                     ListView(
-                                      children: ListTile.divideTiles( //          <-- ListTile.divideTiles
+                                      children: ListTile.divideTiles(
+                                          //          <-- ListTile.divideTiles
                                           color: Colors.black,
                                           context: context,
                                           tiles: [
@@ -245,73 +233,69 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                                   'Bagaimana cara reservasi?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apa itu reservasi?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Adakah tutorial reservasi yang benar?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah reservasi dapat dilakukan di rumah?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah terapis dapat datang ke rumah?',
@@ -319,40 +303,39 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                                     fontSize: 12,
                                                     fontWeight: medium,
                                                   ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah harus menggunakan internet ketika reservasi?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
-                                          ]
-                                      ).toList(),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
+                                          ]).toList(),
                                     ),
                                     ListView(
-                                      children: ListTile.divideTiles( //          <-- ListTile.divideTiles
+                                      children: ListTile.divideTiles(
+                                          //          <-- ListTile.divideTiles
                                           color: Colors.black,
                                           context: context,
                                           tiles: [
@@ -361,73 +344,69 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                                   'Apakah harus mengaktifkan lokasi di aplikasi ini?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Lokasi apa yang harus saya masukkan?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Bagaimana cara memasukkan lokasi?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah bisa memasukkan lokasi lebih dari satu?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah bisa memasukkan lokasi orang lain?',
@@ -435,40 +414,39 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                                     fontSize: 12,
                                                     fontWeight: medium,
                                                   ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah bisa menggunakan peta untuk memasukkan lokasi?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
-                                          ]
-                                      ).toList(),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
+                                          ]).toList(),
                                     ),
                                     ListView(
-                                      children: ListTile.divideTiles( //          <-- ListTile.divideTiles
+                                      children: ListTile.divideTiles(
+                                          //          <-- ListTile.divideTiles
                                           color: Colors.black,
                                           context: context,
                                           tiles: [
@@ -477,73 +455,69 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                                   'Dimana saya dapat mengola akun?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah saya bisa mengubah data diri registrasi?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah saya dapat memasukkan foto profil?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Apakah ada aturan terkait foto profil?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Adakah jaminan data diri saya tidak disalahgunakan?',
@@ -551,41 +525,38 @@ class _HelpPageState extends State<HelpPage> with TickerProviderStateMixin {
                                                     fontSize: 12,
                                                     fontWeight: medium,
                                                   ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
                                             ListTile(
                                                 title: Text(
                                                   'Bagaimana cara mengelola akun yang baik?',
                                                   style: TextStyle(
                                                       fontSize: 12,
-                                                      fontWeight: medium
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
+                                                      fontWeight: medium),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(
-                                                      Icons.arrow_forward_ios_outlined,
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
                                                       size: 10,
-                                                      color: Colors.black
-                                                  ),
-                                                  onPressed: (){},
-                                                )
-                                            ),
-                                          ]
-                                      ).toList(),
+                                                      color: Colors.black),
+                                                  onPressed: () {},
+                                                )),
+                                          ]).toList(),
                                     )
                                   ],
-                                )
-                            ),
+                                )),
                           ),
                           SizedBox(height: 20.0),
                         ],

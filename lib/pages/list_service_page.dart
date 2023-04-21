@@ -3,8 +3,6 @@ import 'package:pedikia/pages/detail_service_page.dart';
 import 'package:pedikia/theme.dart';
 
 class ListServicePage extends StatefulWidget {
-  const ListServicePage({super.key});
-
   @override
   State<ListServicePage> createState() => _ListServicePageState();
 }

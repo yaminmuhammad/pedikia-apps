@@ -4,8 +4,6 @@ import 'package:pedikia/pages/home/edit_profile_page.dart';
 import 'package:pedikia/theme.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
-
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }

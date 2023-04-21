@@ -3,8 +3,6 @@ import 'package:lottie/lottie.dart';
 import 'package:pedikia/theme.dart';
 
 class HistoryPage extends StatelessWidget {
-  const HistoryPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

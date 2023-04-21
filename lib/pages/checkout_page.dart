@@ -9,8 +9,6 @@ import 'package:pedikia/pages/home/main_page.dart';
 import 'package:pedikia/theme.dart';
 
 class CheckoutPage extends StatefulWidget {
-  const CheckoutPage({super.key});
-
   @override
   State<CheckoutPage> createState() => _CheckoutPageState();
 }
@@ -309,9 +307,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       checkColor: Colors.white,
                       activeColor: primaryColor,
                       value: isChecked,
-                      onChanged: (bool? value) {
+                      onChanged: (bool value) {
                         setState(() {
-                          isChecked = value!;
+                          isChecked = value;
                         });
                       },
                     ),

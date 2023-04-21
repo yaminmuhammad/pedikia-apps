@@ -4,8 +4,6 @@ import 'package:pedikia/pages/list_service_page.dart';
 import 'package:pedikia/theme.dart';
 
 class CategoriesServicePage extends StatefulWidget {
-  const CategoriesServicePage({super.key});
-
   @override
   State<CategoriesServicePage> createState() => _CategoriesServicePageState();
 }
@@ -21,8 +19,8 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
           end: 30,
         ),
         child: Text(
-          textAlign: TextAlign.justify,
           'PEDIKIA SIAP MEMBANTU MENGOPTIMALKAN TUMBUH KEMBANG BUAH HATI ANDA',
+          textAlign: TextAlign.justify,
           style: primaryTextStyle.copyWith(
             fontSize: 12,
             fontWeight: bold,
@@ -55,8 +53,8 @@ class _CategoriesServicePageState extends State<CategoriesServicePage> {
         child: Column(
           children: [
             Text(
-              textAlign: TextAlign.justify,
               'Pedispa adalah layanan spa dari Pedikia yang dilakukan oleh terapis tenaga kesehatan dan memiliki sertifikat terapis babyspa.',
+              textAlign: TextAlign.justify,
               style: primaryTextStyle.copyWith(
                 fontSize: 11,
                 color: Color(0xff333333),

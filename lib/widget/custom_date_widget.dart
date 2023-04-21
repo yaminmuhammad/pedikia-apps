@@ -6,7 +6,7 @@ class CustomPicker extends CommonPickerModel {
     return '$value'.padLeft(length, "0");
   }
 
-  CustomPicker({DateTime? currentTime, LocaleType? locale})
+  CustomPicker({DateTime currentTime, LocaleType locale})
       : super(locale: locale) {
     this.currentTime = currentTime ?? DateTime.now();
     this.setLeftIndex(this.currentTime.hour);
@@ -15,7 +15,7 @@ class CustomPicker extends CommonPickerModel {
   }
 
   @override
-  String? leftStringAtIndex(int index) {
+  String leftStringAtIndex(int index) {
     if (index >= 0 && index < 24) {
       return this.digits(index, 2);
     } else {
@@ -24,7 +24,7 @@ class CustomPicker extends CommonPickerModel {
   }
 
   @override
-  String? middleStringAtIndex(int index) {
+  String middleStringAtIndex(int index) {
     if (index >= 0 && index < 60) {
       return this.digits(index, 2);
     } else {
@@ -33,7 +33,7 @@ class CustomPicker extends CommonPickerModel {
   }
 
   @override
-  String? rightStringAtIndex(int index) {
+  String rightStringAtIndex(int index) {
     if (index >= 0 && index < 60) {
       return this.digits(index, 2);
     } else {

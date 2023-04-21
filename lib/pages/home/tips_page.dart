@@ -3,8 +3,6 @@ import 'package:lottie/lottie.dart';
 import 'package:pedikia/theme.dart';
 
 class TipsPage extends StatelessWidget {
-  const TipsPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

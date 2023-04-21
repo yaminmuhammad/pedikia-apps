@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:pedikia/theme.dart';
 
 class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
-
   @override
   State<SignInPage> createState() => _SignInPageState();
 }
@@ -170,9 +168,9 @@ class _SignInPageState extends State<SignInPage> {
                                         checkColor: Colors.white,
                                         activeColor: primaryColor,
                                         value: isChecked,
-                                        onChanged: (bool? value) {
+                                        onChanged: (bool value) {
                                           setState(() {
-                                            isChecked = value!;
+                                            isChecked = value;
                                           });
                                         },
                                       ),

@@ -7,8 +7,6 @@ import 'package:pedikia/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
-
   @override
   State<MainPage> createState() => _MainPageState();
 }

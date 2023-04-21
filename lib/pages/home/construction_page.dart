@@ -4,8 +4,6 @@ import 'package:pedikia/pages/home/home_page.dart';
 import 'package:pedikia/theme.dart';
 
 class ConstructionsPage extends StatelessWidget {
-  const ConstructionsPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

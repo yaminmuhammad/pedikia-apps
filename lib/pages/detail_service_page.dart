@@ -5,8 +5,6 @@ import 'package:pedikia/theme.dart';
 import 'package:pedikia/widget/bullet_widget.dart';
 
 class DetailServicePage extends StatelessWidget {
-  const DetailServicePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     final List<String> imgLists = [
@@ -165,8 +163,8 @@ class DetailServicePage extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(8),
                 child: Text(
-                  textAlign: TextAlign.center,
                   'Layanan pijat untuk bayi guna merangsang pertumbuhan dan perkembangan motorik bayi. Layanan ini diperuntukkan untuk bayi dan anak usia 0-2 tahun. ',
+                  textAlign: TextAlign.center,
                   style: primaryTextStyle.copyWith(
                     color: Color(0xff4F4F4F),
                     fontSize: 12.0,

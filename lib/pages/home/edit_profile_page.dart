@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pedikia/theme.dart';
 
 class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({super.key});
-
   @override
   State<EditProfilePage> createState() => _EditProfilePageState();
 }

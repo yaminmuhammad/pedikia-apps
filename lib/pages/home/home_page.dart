@@ -7,8 +7,6 @@ import 'package:pedikia/pages/home/profile_page.dart';
 import 'package:pedikia/theme.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -292,9 +290,9 @@ class _HomePageState extends State<HomePage> {
 
 class itemKategori extends StatelessWidget {
   const itemKategori({
-    Key? key,
-    required this.title,
-    required this.icon,
+    Key key,
+    this.title,
+    this.icon,
   }) : super(key: key);
 
   final String title;
