@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:pedikia/providers/auth_provider.dart';
 import 'package:pedikia/theme.dart';
+import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -21,8 +23,29 @@ class _SignUpPageState extends State<SignUpPage> {
     _isObscured = true;
   }
 
+  TextEditingController nameController = TextEditingController(text: '');
+  TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+  TextEditingController usernameController = TextEditingController(text: '');
+  TextEditingController phoneController = TextEditingController(text: '');
+  TextEditingController rolesController = TextEditingController(text: '');
+
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+
+    handleSignUp() async {
+      if (await authProvider.register(
+          name: nameController.text,
+          email: emailController.text,
+          password: passwordController.text,
+          username: usernameController.text,
+          phone: phoneController.text,
+          roles: rolesController.text)) {
+        Navigator.pushNamed(context, '/home');
+      }
+    }
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -92,6 +115,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   Expanded(
                                     child: TextFormField(
+                                      controller: nameController,
                                       style: subtitleTextStyle,
                                       decoration: InputDecoration.collapsed(
                                         hintText: 'Nama Lengkap',
@@ -126,6 +150,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   Expanded(
                                     child: TextFormField(
+                                      controller: usernameController,
                                       style: subtitleTextStyle,
                                       decoration: InputDecoration.collapsed(
                                         hintText: 'Username',
@@ -160,6 +185,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   Expanded(
                                     child: TextFormField(
+                                      controller: phoneController,
                                       style: subtitleTextStyle,
                                       decoration: InputDecoration.collapsed(
                                         hintText: 'No. Handphone',
@@ -194,6 +220,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   Expanded(
                                     child: TextFormField(
+                                      controller: emailController,
                                       style: subtitleTextStyle,
                                       decoration: InputDecoration.collapsed(
                                         hintText: 'Email',
@@ -228,6 +255,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   Expanded(
                                     child: TextFormField(
+                                      controller: passwordController,
                                       style: subtitleTextStyle,
                                       obscureText: _isObscured,
                                       decoration: InputDecoration(
@@ -318,6 +346,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             child: TextButton(
                               onPressed: () {
                                 //function for regist code here
+                                handleSignUp();
                               },
                               style: TextButton.styleFrom(
                                 backgroundColor: primaryColor,
