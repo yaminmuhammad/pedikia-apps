@@ -10,17 +10,23 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-const List<String> list = <String>['Pengguna', 'Terapis'];
-
 class _SignUpPageState extends State<SignUpPage> {
   var _isObscured;
-  String dropdownValue = list.first;
+  final myController = TextEditingController();
+  String dropdownValue = "PENGGUNA";
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _isObscured = true;
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    myController.dispose();
+    super.dispose();
   }
 
   TextEditingController nameController = TextEditingController(text: '');
@@ -36,13 +42,27 @@ class _SignUpPageState extends State<SignUpPage> {
 
     handleSignUp() async {
       if (await authProvider.register(
-          name: nameController.text,
-          email: emailController.text,
-          password: passwordController.text,
-          username: usernameController.text,
-          phone: phoneController.text,
-          roles: rolesController.text)) {
+        name: nameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+        username: usernameController.text,
+        phone: phoneController.text,
+        roles: dropdownValue,
+      )) {
         Navigator.pushNamed(context, '/home');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(
+              'Register Failed',
+              textAlign: TextAlign.center,
+              style: whiteTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+          ),
+        );
       }
     }
 
@@ -321,13 +341,16 @@ class _SignUpPageState extends State<SignUpPage> {
                                   fontSize: 16,
                                   fontWeight: medium,
                                 ),
-                                onChanged: (String value) {
+                                onChanged: (String newValue) {
                                   setState(() {
-                                    dropdownValue = value;
+                                    dropdownValue = newValue;
+                                    myController.text = dropdownValue;
                                   });
                                 },
-                                items: list.map<DropdownMenuItem<String>>(
-                                    (String value) {
+                                items: <String>[
+                                  'PENGGUNA',
+                                  'TERAPIS'
+                                ].map<DropdownMenuItem<String>>((String value) {
                                   return DropdownMenuItem<String>(
                                     value: value,
                                     child: Text(value),
