@@ -117,6 +117,40 @@ class _SignUpPageState extends State<SignUpPage> {
                               child: Row(
                                 children: [
                                   Icon(
+                                    Icons.people_alt_outlined,
+                                    color: primaryColor,
+                                    size: 20,
+                                  ),
+                                  SizedBox(
+                                    width: 16,
+                                  ),
+                                  Expanded(
+                                    child: TextFormField(
+                                      style: subtitleTextStyle,
+                                      decoration: InputDecoration.collapsed(
+                                        hintText: 'Username',
+                                        hintStyle: subtitleTextStyle,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20.0),
+                          Container(
+                            height: 50,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 16,
+                            ),
+                            decoration: BoxDecoration(
+                              color: secondaryColor,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Icon(
                                     Icons.phone,
                                     color: primaryColor,
                                     size: 20,
@@ -217,60 +251,6 @@ class _SignUpPageState extends State<SignUpPage> {
                                         ),
                                         border: InputBorder.none,
                                         hintText: 'Kata sandi',
-                                        hintStyle: subtitleTextStyle,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 20.0),
-                          Container(
-                            height: 50,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 16,
-                            ),
-                            decoration: BoxDecoration(
-                              color: secondaryColor,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Center(
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.lock,
-                                    color: primaryColor,
-                                    size: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 16,
-                                  ),
-                                  Expanded(
-                                    child: TextFormField(
-                                      style: subtitleTextStyle,
-                                      obscureText: _isObscured,
-                                      decoration: InputDecoration(
-                                        suffixIcon: IconButton(
-                                          padding: EdgeInsetsDirectional.only(
-                                              end: 12),
-                                          icon: _isObscured
-                                              ? Icon(
-                                                  Icons.visibility,
-                                                  color: primaryColor,
-                                                )
-                                              : Icon(
-                                                  Icons.visibility_off_outlined,
-                                                  color: primaryColor,
-                                                ),
-                                          onPressed: () {
-                                            setState(() {
-                                              _isObscured = !_isObscured;
-                                            });
-                                          },
-                                        ),
-                                        border: InputBorder.none,
-                                        hintText: 'Konfirmasi kata sandi',
                                         hintStyle: subtitleTextStyle,
                                       ),
                                     ),
