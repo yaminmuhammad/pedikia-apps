@@ -45,7 +45,7 @@ class _SignInPageState extends State<SignInPage> {
           SnackBar(
             backgroundColor: Colors.red,
             content: Text(
-              'Gagal Login',
+              'Email atau Password Salah',
               textAlign: TextAlign.center,
               style: whiteTextStyle.copyWith(
                 fontSize: 16,
@@ -265,7 +265,6 @@ class _SignInPageState extends State<SignInPage> {
                             height: 10,
                           ),
                           Row(
-                            // ignore: prefer_const_literals_to_create_immutables
                             children: <Widget>[
                               Expanded(
                                 child: Container(

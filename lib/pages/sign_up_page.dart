@@ -14,7 +14,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   var _isObscured;
   final myController = TextEditingController();
-  String dropdownValue = "PENGGUNA";
+  String dropdownValue = "pengguna";
 
   @override
   void initState() {
@@ -31,11 +31,12 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   TextEditingController nameController = TextEditingController(text: '');
+  TextEditingController phoneController = TextEditingController(text: '');
+  TextEditingController addressController = TextEditingController(text: '');
+  TextEditingController cityController = TextEditingController(text: '');
+  TextEditingController rolesController = TextEditingController(text: '');
   TextEditingController emailController = TextEditingController(text: '');
   TextEditingController passwordController = TextEditingController(text: '');
-  TextEditingController usernameController = TextEditingController(text: '');
-  TextEditingController phoneController = TextEditingController(text: '');
-  TextEditingController rolesController = TextEditingController(text: '');
   bool isLoading = false;
 
   @override
@@ -49,11 +50,12 @@ class _SignUpPageState extends State<SignUpPage> {
 
       if (await authProvider.register(
         name: nameController.text,
+        phone: phoneController.text,
+        address: addressController.text,
+        city: cityController.text,
+        roles: dropdownValue,
         email: emailController.text,
         password: passwordController.text,
-        username: usernameController.text,
-        phone: phoneController.text,
-        roles: dropdownValue,
       )) {
         Navigator.pushNamed(context, '/home');
       } else {
@@ -125,43 +127,6 @@ class _SignUpPageState extends State<SignUpPage> {
       );
     }
 
-    Widget usernameInput() {
-      return Container(
-        height: 50,
-        padding: EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        decoration: BoxDecoration(
-          color: secondaryColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Center(
-          child: Row(
-            children: [
-              Icon(
-                Icons.people_alt_outlined,
-                color: primaryColor,
-                size: 20,
-              ),
-              SizedBox(
-                width: 16,
-              ),
-              Expanded(
-                child: TextFormField(
-                  controller: usernameController,
-                  style: subtitleTextStyle,
-                  decoration: InputDecoration.collapsed(
-                    hintText: 'Username',
-                    hintStyle: subtitleTextStyle,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
     Widget phoneInput() {
       return Container(
         height: 50,
@@ -194,6 +159,121 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
             ],
+          ),
+        ),
+      );
+    }
+
+    Widget addressInput() {
+      return Container(
+        height: 50,
+        padding: EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        decoration: BoxDecoration(
+          color: secondaryColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Center(
+          child: Row(
+            children: [
+              Icon(
+                Icons.home,
+                color: primaryColor,
+                size: 20,
+              ),
+              SizedBox(
+                width: 16,
+              ),
+              Expanded(
+                child: TextFormField(
+                  controller: addressController,
+                  style: subtitleTextStyle,
+                  decoration: InputDecoration.collapsed(
+                    hintText: 'Alamat',
+                    hintStyle: subtitleTextStyle,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    Widget cityInput() {
+      return Container(
+        height: 50,
+        padding: EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        decoration: BoxDecoration(
+          color: secondaryColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Center(
+          child: Row(
+            children: [
+              Icon(
+                Icons.apartment,
+                color: primaryColor,
+                size: 20,
+              ),
+              SizedBox(
+                width: 16,
+              ),
+              Expanded(
+                child: TextFormField(
+                  controller: cityController,
+                  style: subtitleTextStyle,
+                  decoration: InputDecoration.collapsed(
+                    hintText: 'Kota',
+                    hintStyle: subtitleTextStyle,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    Widget rolesInput() {
+      return Container(
+        height: 51,
+        padding: EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        decoration: BoxDecoration(
+          color: secondaryColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Center(
+          child: DropdownButton<String>(
+            value: dropdownValue,
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: primaryColor,
+            ),
+            isExpanded: true,
+            borderRadius: BorderRadius.circular(12),
+            style: subtitleTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: medium,
+            ),
+            onChanged: (String newValue) {
+              setState(() {
+                dropdownValue = newValue;
+                myController.text = dropdownValue;
+              });
+            },
+            items: <String>['pengguna', 'therapist']
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
           ),
         ),
       );
@@ -239,9 +319,7 @@ class _SignUpPageState extends State<SignUpPage> {
     Widget passwordInput() {
       return Container(
         height: 50,
-        padding: EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           color: secondaryColor,
           borderRadius: BorderRadius.circular(12),
@@ -254,14 +332,18 @@ class _SignUpPageState extends State<SignUpPage> {
                 color: primaryColor,
                 size: 20,
               ),
-              SizedBox(
-                width: 16,
-              ),
+              SizedBox(width: 16),
               Expanded(
                 child: TextFormField(
                   controller: passwordController,
                   style: subtitleTextStyle,
                   obscureText: _isObscured,
+                  validator: (value) {
+                    if (value.length < 10) {
+                      return 'Kata sandi harus memiliki minimal 10 karakter';
+                    }
+                    return null;
+                  },
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
                       padding: EdgeInsetsDirectional.only(end: 12),
@@ -281,53 +363,12 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                     ),
                     border: InputBorder.none,
-                    hintText: 'Kata sandi',
+                    hintText: 'Kata sandi minimal 8 karakter',
                     hintStyle: subtitleTextStyle,
                   ),
                 ),
               ),
             ],
-          ),
-        ),
-      );
-    }
-
-    Widget dropdownInput() {
-      return Container(
-        height: 51,
-        padding: EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        decoration: BoxDecoration(
-          color: secondaryColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Center(
-          child: DropdownButton<String>(
-            value: dropdownValue,
-            icon: Icon(
-              Icons.arrow_drop_down,
-              color: primaryColor,
-            ),
-            isExpanded: true,
-            borderRadius: BorderRadius.circular(12),
-            style: subtitleTextStyle.copyWith(
-              fontSize: 16,
-              fontWeight: medium,
-            ),
-            onChanged: (String newValue) {
-              setState(() {
-                dropdownValue = newValue;
-                myController.text = dropdownValue;
-              });
-            },
-            items: <String>['PENGGUNA', 'TERAPIS']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
           ),
         ),
       );
@@ -401,9 +442,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           header(),
                           nameInput(),
                           SizedBox(height: 20.0),
-                          usernameInput(),
-                          SizedBox(height: 20.0),
                           phoneInput(),
+                          SizedBox(height: 20.0),
+                          addressInput(),
+                          SizedBox(height: 20.0),
+                          cityInput(),
                           SizedBox(height: 20.0),
                           emailInput(),
                           SizedBox(height: 20.0),
@@ -416,7 +459,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                           ),
                           SizedBox(height: 5),
-                          dropdownInput(),
+                          rolesInput(),
                           SizedBox(height: 10),
                           isLoading ? LoadingButton() : signupButton(),
                           SizedBox(height: 10),

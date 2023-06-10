@@ -5,23 +5,26 @@ import 'package:pedikia/models/user_model.dart';
 class AuthService {
   String baseUrl = "http://10.0.2.2:8000/api";
 
-  Future<UserModel> register(
-      {String name,
-      String username,
-      String email,
-      String password,
-      String phone,
-      String roles}) async {
+  Future<UserModel> register({
+    String name,
+    String phone,
+    String address,
+    String city,
+    String roles,
+    String email,
+    String password,
+  }) async {
     var url = '$baseUrl/register';
 
     var headers = {'Content-Type': 'application/json'};
     var body = jsonEncode({
       'name': name,
-      'username': username,
+      'phone': phone,
+      'address': address,
+      'city': city,
+      'roles': roles,
       'email': email,
       'password': password,
-      'phone': phone,
-      'roles': roles,
     });
 
     var response = await http.post(
