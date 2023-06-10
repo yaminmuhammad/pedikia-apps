@@ -1,10 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:pedikia/models/user_model.dart';
 import 'package:pedikia/pages/categories_service_page.dart';
 import 'package:pedikia/pages/home/construction_page.dart';
 import 'package:pedikia/pages/home/history_page.dart';
 import 'package:pedikia/pages/home/profile_page.dart';
+import 'package:pedikia/providers/auth_provider.dart';
 import 'package:pedikia/theme.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,6 +23,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
     Widget Header() {
       return Stack(
         children: [
@@ -93,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Text(
-                        'John Deep',
+                        '${user.name}',
                         style: primaryTextStyle.copyWith(
                           fontSize: 25,
                           fontWeight: bold,
@@ -164,9 +170,11 @@ class _HomePageState extends State<HomePage> {
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CategoriesServicePage()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CategoriesServicePage(),
+                        ),
+                      );
                     },
                     child: itemKategori(
                       title: "Pedispa",
@@ -174,21 +182,42 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ConstructionsPage(),
+                        ),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pedisitter",
                       icon: "assets/icon_pedisiter.png",
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ConstructionsPage(),
+                        ),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pedibaby",
                       icon: "assets/icon_pedibaby.png",
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ConstructionsPage(),
+                        ),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pedikids",
                       icon: "assets/icon_pedikids.png",
@@ -210,28 +239,56 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ConstructionsPage(),
+                        ),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pediary",
                       icon: "assets/icon_pediary.png",
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ConstructionsPage(),
+                        ),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pedifood",
                       icon: "assets/icon_pedifood.png",
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ConstructionsPage(),
+                        ),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pedishop",
                       icon: "assets/icon_pedishop.png",
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ConstructionsPage(),
+                        ),
+                      );
+                    },
                     child: itemKategori(
                       title: "Pedirental",
                       icon: "assets/icon_pedirental.png",
