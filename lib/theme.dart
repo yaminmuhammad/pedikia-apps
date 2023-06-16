@@ -26,6 +26,10 @@ TextStyle secondaryTextStyle = GoogleFonts.roboto(
   color: secondaryColor,
 );
 
+TextStyle priceTextStyle = GoogleFonts.roboto(
+  color: priceColor,
+);
+
 TextStyle subtitleTextStyle = GoogleFonts.roboto(
   color: subtitleColor,
 );

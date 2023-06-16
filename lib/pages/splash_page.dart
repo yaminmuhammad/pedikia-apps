@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:pedikia/providers/serve_provider.dart';
 import 'package:pedikia/theme.dart';
+import 'package:provider/provider.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -13,11 +15,14 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     // TODO: implement initState
 
-    Timer(
-      Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(context, '/sign-in'),
-    );
+    getInit();
+
     super.initState();
+  }
+
+  getInit() async {
+    await Provider.of<ServeProvider>(context, listen: false).getServices();
+    Navigator.pushNamed(context, '/sign-in');
   }
 
   @override

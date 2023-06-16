@@ -3,8 +3,9 @@ import 'package:pedikia/pages/home/history_page.dart';
 import 'package:pedikia/pages/home/home_page.dart';
 import 'package:pedikia/pages/home/profile_page.dart';
 import 'package:pedikia/pages/home/tips_page.dart';
+import 'package:pedikia/providers/page_provider.dart';
 import 'package:pedikia/theme.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -12,10 +13,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int currentIndex = 0;
+  // int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    PageProvider pageProvider = Provider.of<PageProvider>(context);
+
     Widget HelpButton() {
       return FloatingActionButton(
         onPressed: () {},
@@ -38,20 +41,19 @@ class _MainPageState extends State<MainPage> {
     Widget CustomBottomNav() {
       return BottomNavigationBar(
         selectedItemColor: primaryColor,
-        currentIndex: currentIndex,
+        currentIndex: pageProvider.currentIndex,
         onTap: (value) {
-          setState(
-            () {
-              currentIndex = value;
-            },
-          );
+          print(value);
+          pageProvider.currentIndex = value;
         },
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/icon_home.png',
               width: 22,
-              color: currentIndex == 0 ? primaryColor : Color(0xffBDBDBD),
+              color: pageProvider.currentIndex == 0
+                  ? primaryColor
+                  : Color(0xffBDBDBD),
             ),
             label: 'Beranda',
           ),
@@ -59,7 +61,9 @@ class _MainPageState extends State<MainPage> {
             icon: Image.asset(
               'assets/icon_tips.png',
               width: 22,
-              color: currentIndex == 1 ? primaryColor : Color(0xffBDBDBD),
+              color: pageProvider.currentIndex == 1
+                  ? primaryColor
+                  : Color(0xffBDBDBD),
             ),
             label: 'Tips',
           ),
@@ -67,7 +71,9 @@ class _MainPageState extends State<MainPage> {
             icon: Image.asset(
               'assets/icon_history.png',
               width: 24,
-              color: currentIndex == 2 ? primaryColor : Color(0xffBDBDBD),
+              color: pageProvider.currentIndex == 2
+                  ? primaryColor
+                  : Color(0xffBDBDBD),
             ),
             label: 'Riwayat',
           ),
@@ -75,7 +81,9 @@ class _MainPageState extends State<MainPage> {
             icon: Image.asset(
               'assets/icon_profile.png',
               width: 17,
-              color: currentIndex == 3 ? primaryColor : Color(0xffBDBDBD),
+              color: pageProvider.currentIndex == 3
+                  ? primaryColor
+                  : Color(0xffBDBDBD),
             ),
             label: 'Profil',
           ),
@@ -84,7 +92,7 @@ class _MainPageState extends State<MainPage> {
     }
 
     Widget Body() {
-      switch (currentIndex) {
+      switch (pageProvider.currentIndex) {
         case 0:
           return HomePage();
           break;
