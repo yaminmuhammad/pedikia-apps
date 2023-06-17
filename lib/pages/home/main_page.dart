@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pedikia/pages/home/history_page.dart';
 import 'package:pedikia/pages/home/home_page.dart';
 import 'package:pedikia/pages/home/profile_page.dart';
-import 'package:pedikia/pages/home/tips_page.dart';
+import 'package:pedikia/pages/home/wishlist_page.dart';
 import 'package:pedikia/providers/page_provider.dart';
 import 'package:pedikia/theme.dart';
 import 'package:provider/provider.dart';
@@ -64,7 +64,7 @@ class _MainPageState extends State<MainPage> {
                   ? primaryColor
                   : Color(0xffBDBDBD),
             ),
-            label: 'Wishlist',
+            label: 'Favorite',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -96,7 +96,7 @@ class _MainPageState extends State<MainPage> {
           return HomePage();
           break;
         case 1:
-          return TipsPage();
+          return WishlistPage();
         case 2:
           return HistoryPage();
           break;

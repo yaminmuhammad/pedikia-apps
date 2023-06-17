@@ -2,8 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pedikia/models/service_model.dart';
 import 'package:pedikia/pages/checkout_page.dart';
+import 'package:pedikia/providers/wishlist_provider.dart';
 import 'package:pedikia/theme.dart';
 import 'package:pedikia/widget/bullet_widget.dart';
+import 'package:provider/provider.dart';
 
 class DetailServicePage extends StatefulWidget {
   final ServiceModel service;
@@ -16,6 +18,8 @@ class DetailServicePage extends StatefulWidget {
 class _DetailServicePageState extends State<DetailServicePage> {
   @override
   Widget build(BuildContext context) {
+    WishlistProvider wishlistProvider = Provider.of<WishlistProvider>(context);
+
     final List<String> imgLists = [
       'assets/image_baby6.png',
       'assets/image_baby6.png',
@@ -80,47 +84,38 @@ class _DetailServicePageState extends State<DetailServicePage> {
                     ),
                   ],
                 ),
-                // GestureDetector(
-                //     onTap: () {
-                //       wishlistProvider.setProduct(widget.product);
-
-                //       if (wishlistProvider.isWishlist(widget.product)) {
-                //         ScaffoldMessenger.of(context).showSnackBar(
-                //           SnackBar(
-                //             backgroundColor: secondaryColor,
-                //             content: Text(
-                //               'Has been added to the Wishlist',
-                //               textAlign: TextAlign.center,
-                //             ),
-                //           ),
-                //         );
-                //       } else {
-                //         ScaffoldMessenger.of(context).showSnackBar(
-                //           SnackBar(
-                //             backgroundColor: alertColor,
-                //             content: Text(
-                //               'Has been removed from the Wishlist',
-                //               textAlign: TextAlign.center,
-                //             ),
-                //           ),
-                //         );
-                //       }
-                //     },
-                //     child: Image.asset(
-                //       wishlistProvider.isWishlist(widget.product)
-                //           ? 'assets/button_wishlist_blue.png'
-                //           : 'assets/button_wishlist.png',
-                //       width: 46,
-                //     ),
-                //   ),
-
-                // Text(
-                //   'Rp ${widget.service.price.toStringAsFixed(0).replaceAll('.', ',')}',
-                //   style: primaryTextStyle.copyWith(
-                //     fontSize: 16.0,
-                //     color: Colors.black,
-                //   ),
-                // ),
+                GestureDetector(
+                  onTap: () {
+                    wishlistProvider.setService(widget.service);
+                    if (wishlistProvider.isWishlist(widget.service)) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: priceColor,
+                          content: Text(
+                            'Has been added to the Wishlist',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: alertColor,
+                          content: Text(
+                            'Has been removed from the Wishlist',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                  child: Image.asset(
+                    wishlistProvider.isWishlist(widget.service)
+                        ? 'assets/button_wishlist_pink.png'
+                        : 'assets/button_wishlist.png',
+                    width: 46,
+                  ),
+                ),
               ],
             ),
             SizedBox(
