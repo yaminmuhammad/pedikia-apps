@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:pedikia/models/user_model.dart';
 
 class AuthService {
-  String baseUrl = "http://192.168.230.159:8001/api";
+  String baseUrl = "http://192.168.48.159:8001/api";
   // 192.168.158.159
 
   Future<UserModel> register({

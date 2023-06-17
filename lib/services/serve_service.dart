@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:pedikia/models/service_model.dart';
 
 class ServeService {
-  String baseUrl = "http://192.168.230.159:8001/api";
+  String baseUrl = "http://192.168.48.159:8001/api";
 
   Future<List<ServiceModel>> getServices() async {
     var url = "$baseUrl/services";

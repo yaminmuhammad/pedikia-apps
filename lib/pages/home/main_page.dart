@@ -58,14 +58,13 @@ class _MainPageState extends State<MainPage> {
             label: 'Beranda',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/icon_tips.png',
-              width: 22,
+            icon: Icon(
+              Icons.favorite,
               color: pageProvider.currentIndex == 1
                   ? primaryColor
                   : Color(0xffBDBDBD),
             ),
-            label: 'Tips',
+            label: 'Wishlist',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(

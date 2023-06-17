@@ -1,10 +1,19 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:pedikia/models/service_model.dart';
 import 'package:pedikia/pages/checkout_page.dart';
 import 'package:pedikia/theme.dart';
 import 'package:pedikia/widget/bullet_widget.dart';
 
-class DetailServicePage extends StatelessWidget {
+class DetailServicePage extends StatefulWidget {
+  final ServiceModel service;
+  DetailServicePage(this.service);
+
+  @override
+  State<DetailServicePage> createState() => _DetailServicePageState();
+}
+
+class _DetailServicePageState extends State<DetailServicePage> {
   @override
   Widget build(BuildContext context) {
     final List<String> imgLists = [
@@ -16,28 +25,22 @@ class DetailServicePage extends StatelessWidget {
     Widget carouselHeader() {
       return CarouselSlider(
         options: CarouselOptions(
-          height: 260.0,
+          height: 280.0,
           enlargeCenterPage: true,
           scrollPhysics: BouncingScrollPhysics(),
           initialPage: 0,
           pauseAutoPlayOnTouch: true,
         ),
-        items: imgLists.map(
-          (i) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(
-                  child: Center(
-                    child: Image.asset(
-                      i,
-                    ),
-                  ),
-                  width: MediaQuery.of(context).size.width,
-                );
-              },
-            );
-          },
-        ).toList(),
+        items: widget.service.galleries
+            .map(
+              (image) => Image.network(
+                image.url,
+                width: MediaQuery.of(context).size.width,
+                height: 310,
+                fit: BoxFit.cover,
+              ),
+            )
+            .toList(),
       );
     }
 
@@ -53,123 +56,84 @@ class DetailServicePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Baby Spa',
-                  style: primaryTextStyle.copyWith(
-                    fontSize: 22.0,
-                    color: Colors.black,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.service.name,
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 22.0,
+                        color: Colors.black,
+                        fontWeight: bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Rp ${widget.service.price.toStringAsFixed(0).replaceAll('.', ',')}',
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 15,
+                        color: priceColor,
+                        fontWeight: bold,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Rp. 100.000',
-                  style: primaryTextStyle.copyWith(
-                    fontSize: 16.0,
-                    color: Colors.black,
-                  ),
-                ),
+                // GestureDetector(
+                //     onTap: () {
+                //       wishlistProvider.setProduct(widget.product);
+
+                //       if (wishlistProvider.isWishlist(widget.product)) {
+                //         ScaffoldMessenger.of(context).showSnackBar(
+                //           SnackBar(
+                //             backgroundColor: secondaryColor,
+                //             content: Text(
+                //               'Has been added to the Wishlist',
+                //               textAlign: TextAlign.center,
+                //             ),
+                //           ),
+                //         );
+                //       } else {
+                //         ScaffoldMessenger.of(context).showSnackBar(
+                //           SnackBar(
+                //             backgroundColor: alertColor,
+                //             content: Text(
+                //               'Has been removed from the Wishlist',
+                //               textAlign: TextAlign.center,
+                //             ),
+                //           ),
+                //         );
+                //       }
+                //     },
+                //     child: Image.asset(
+                //       wishlistProvider.isWishlist(widget.product)
+                //           ? 'assets/button_wishlist_blue.png'
+                //           : 'assets/button_wishlist.png',
+                //       width: 46,
+                //     ),
+                //   ),
+
+                // Text(
+                //   'Rp ${widget.service.price.toStringAsFixed(0).replaceAll('.', ',')}',
+                //   style: primaryTextStyle.copyWith(
+                //     fontSize: 16.0,
+                //     color: Colors.black,
+                //   ),
+                // ),
               ],
             ),
             SizedBox(
               height: 10.0,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: priceColor,
-                    ),
-                  ),
-                  width: 83,
-                  height: 20,
-                  alignment: Alignment.center,
-                  child: Text(
-                    '90 Menit',
-                    style: primaryTextStyle.copyWith(
-                      fontSize: 11.0,
-                      color: priceColor,
-                    ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: priceColor,
-                    ),
-                  ),
-                  width: 83,
-                  height: 20,
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Handuk',
-                    style: primaryTextStyle.copyWith(
-                      fontSize: 11.0,
-                      color: priceColor,
-                    ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: priceColor,
-                    ),
-                  ),
-                  width: 83,
-                  height: 20,
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Baby Lotion',
-                    style: primaryTextStyle.copyWith(
-                      fontSize: 11.0,
-                      color: priceColor,
-                    ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: priceColor,
-                    ),
-                  ),
-                  width: 83,
-                  height: 20,
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Matrass',
-                    style: primaryTextStyle.copyWith(
-                      fontSize: 11.0,
-                      color: priceColor,
-                    ),
-                  ),
-                ),
-              ],
-            ),
             SizedBox(
               height: 30.0,
             ),
             Container(
-              height: 56,
-              decoration: BoxDecoration(
-                color: Color(0xffF2F2F2),
-                borderRadius: BorderRadius.circular(
-                  30,
-                ),
-              ),
-              child: Container(
-                padding: EdgeInsets.all(8),
-                child: Text(
-                  'Layanan pijat untuk bayi guna merangsang pertumbuhan dan perkembangan motorik bayi. Layanan ini diperuntukkan untuk bayi dan anak usia 0-2 tahun. ',
-                  textAlign: TextAlign.center,
-                  style: primaryTextStyle.copyWith(
-                    color: Color(0xff4F4F4F),
-                    fontSize: 12.0,
-                  ),
-                ),
+              padding: EdgeInsets.all(3),
+              child: Image.asset(
+                'assets/why.png',
+                width: 1000,
               ),
             ),
             SizedBox(
@@ -178,29 +142,13 @@ class DetailServicePage extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Manfaat lainnya diantaranya:',
+                widget.service.description,
                 style: primaryTextStyle.copyWith(
-                  fontSize: 15,
-                  fontWeight: bold,
+                  fontSize: 13,
+                  fontWeight: medium,
                   color: Color(0xff333333),
                 ),
               ),
-            ),
-            Column(
-              children: [
-                BulletList(
-                  [
-                    'Meningkatkan frekuensi menyusu',
-                    'Meningkatkan berat badan bayi',
-                    'Membantu bayi untuk berlatih relaksasi ',
-                    'Membantu bayi untuk tidur dengan lelap dan lama',
-                    'Membuat ikatan/bonding dengan ibu',
-                    'Meningkatkan kemampuan sensorik dan motorik bayi',
-                    'Membantu melancarkan sistem pencernaan bayi',
-                    'Mencegah bayi mengalami tantrum (kehilangan kontrol emosional yang mendadak pada bayi)'
-                  ],
-                ),
-              ],
             ),
           ],
         ),
@@ -243,14 +191,14 @@ class DetailServicePage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        title: Text(
-          'Detail Service',
-          style: primaryTextStyle.copyWith(
-            fontSize: 18.0,
-            fontWeight: bold,
-            color: Colors.white,
-          ),
-        ),
+        // title: Text(
+        //   'Detail Service',
+        //   style: primaryTextStyle.copyWith(
+        //     fontSize: 18.0,
+        //     fontWeight: bold,
+        //     color: Colors.white,
+        //   ),
+        // ),
         centerTitle: true,
         leading: IconButton(
           icon: Icon(
@@ -270,6 +218,9 @@ class DetailServicePage extends StatelessWidget {
         ),
         child: Column(
           children: [
+            SizedBox(
+              height: 30.0,
+            ),
             carouselHeader(),
             content(),
           ],

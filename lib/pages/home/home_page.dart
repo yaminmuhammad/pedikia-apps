@@ -89,22 +89,25 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Halo,',
-                        style: primaryTextStyle.copyWith(
-                          fontSize: 20,
-                          fontWeight: medium,
-                          // color: Colors.white,
-                        ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Text(
-                        '${user.name}',
+                        'Halo,  ${user.name}',
                         style: primaryTextStyle.copyWith(
                           fontSize: 25,
                           fontWeight: bold,
                           // color: Colors.white,
                         ),
                       ),
+                      // Text(
+                      //   '${user.name}',
+                      //   style: primaryTextStyle.copyWith(
+                      //     fontSize: 25,
+                      //     fontWeight: bold,
+                      //     // color: Colors.white,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

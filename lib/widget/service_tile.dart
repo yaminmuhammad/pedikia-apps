@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pedikia/models/service_model.dart';
+import 'package:pedikia/pages/detail_service_page.dart';
 import 'package:pedikia/theme.dart';
 
 class ServiceTile extends StatelessWidget {
@@ -13,12 +14,12 @@ class ServiceTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => ProductPage(product),
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailServicePage(service),
+          ),
+        );
       },
       child: Container(
         margin: EdgeInsets.only(
@@ -62,7 +63,7 @@ class ServiceTile extends StatelessWidget {
                     maxLines: 1,
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
