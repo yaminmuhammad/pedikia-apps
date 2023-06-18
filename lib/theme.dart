@@ -31,6 +31,8 @@ TextStyle priceTextStyle = GoogleFonts.roboto(
   color: priceColor,
 );
 
+TextStyle alertTextStyle = GoogleFonts.roboto(color: alertColor);
+
 TextStyle subtitleTextStyle = GoogleFonts.roboto(
   color: subtitleColor,
 );

@@ -8,6 +8,7 @@ import 'package:pedikia/providers/wishlist_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:pedikia/providers/serve_provider.dart';
 import 'package:pedikia/providers/page_provider.dart';
+import 'package:pedikia/providers/cart_provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +28,10 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => WishlistProvider(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

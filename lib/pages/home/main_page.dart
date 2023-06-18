@@ -6,6 +6,7 @@ import 'package:pedikia/pages/home/wishlist_page.dart';
 import 'package:pedikia/providers/page_provider.dart';
 import 'package:pedikia/theme.dart';
 import 'package:provider/provider.dart';
+import 'package:pedikia/pages/cart_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -67,10 +68,19 @@ class _MainPageState extends State<MainPage> {
             label: 'Favorite',
           ),
           BottomNavigationBarItem(
+            icon: Icon(
+              Icons.local_mall,
+              color: pageProvider.currentIndex == 2
+                  ? primaryColor
+                  : Color(0xffBDBDBD),
+            ),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
             icon: Image.asset(
               'assets/icon_history.png',
               width: 24,
-              color: pageProvider.currentIndex == 2
+              color: pageProvider.currentIndex == 3
                   ? primaryColor
                   : Color(0xffBDBDBD),
             ),
@@ -80,7 +90,7 @@ class _MainPageState extends State<MainPage> {
             icon: Image.asset(
               'assets/icon_profile.png',
               width: 17,
-              color: pageProvider.currentIndex == 3
+              color: pageProvider.currentIndex == 4
                   ? primaryColor
                   : Color(0xffBDBDBD),
             ),
@@ -97,10 +107,14 @@ class _MainPageState extends State<MainPage> {
           break;
         case 1:
           return WishlistPage();
+          break;
         case 2:
-          return HistoryPage();
+          return CartPage();
           break;
         case 3:
+          return HistoryPage();
+          break;
+        case 4:
           return ProfilePage();
           break;
         default:

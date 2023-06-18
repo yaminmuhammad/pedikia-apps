@@ -19,7 +19,7 @@ class WishlistPage extends StatelessWidget {
         centerTitle: true,
         automaticallyImplyLeading: false,
         title: Text(
-          'Favorite Service',
+          'Favorite',
           style: primaryTextStyle.copyWith(
             fontSize: 20,
             color: whiteColor,
@@ -113,37 +113,11 @@ class WishlistPage extends StatelessWidget {
     }
 
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            header(),
-            wishlistProvider.wishlist.length == 0 ? emptyWishlist() : content(),
-          ],
-        ),
-        // child: Center(
-        //   child: ListView(
-        //     children: [
-        //       // Load a Lottie file from your assets
-        //       Container(
-        //         margin: EdgeInsets.only(top: 130),
-        //         child: Lottie.asset('assets/no_tips.json',
-        //             alignment: Alignment.bottomCenter),
-        //       ),
-        //       Center(
-        //         child: Container(
-        //           margin: EdgeInsets.all(30),
-        //           child: Text(
-        //             'Tidak ada Tips',
-        //             style: primaryTextStyle.copyWith(
-        //               fontSize: 20,
-        //               fontWeight: bold,
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        // ),
+      body: Column(
+        children: [
+          header(),
+          wishlistProvider.wishlist.length == 0 ? emptyWishlist() : content(),
+        ],
       ),
     );
   }
