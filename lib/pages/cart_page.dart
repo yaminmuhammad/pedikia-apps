@@ -36,42 +36,27 @@ class CartPage extends StatelessWidget {
               width: 80,
             ),
             SizedBox(
-              height: 20,
+              height: 23,
             ),
             Text(
-              'Keranjangmu kosong nih, \nAyo isi sekarang!',
-              textAlign: TextAlign.center,
+              'Keranjangmu masih kosong nih',
               style: primaryTextStyle.copyWith(
                 fontSize: 16,
-                fontWeight: medium,
+                fontWeight: semiBold,
               ),
             ),
-            Container(
-              height: 44,
-              width: 154,
-              margin: EdgeInsets.only(
-                top: 20,
+            SizedBox(
+              height: 12,
+            ),
+            Text(
+              'Ayo segera isi !',
+              style: primaryTextStyle.copyWith(
+                fontSize: 12,
+                color: timeColor,
               ),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, '/home', (route) => false);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: Text(
-                  'Temukan Layanan',
-                  style: primaryTextStyle.copyWith(
-                    fontSize: 16,
-                    color: whiteColor,
-                    fontWeight: medium,
-                  ),
-                ),
-              ),
+            ),
+            SizedBox(
+              height: 20,
             ),
           ],
         ),
@@ -108,7 +93,8 @@ class CartPage extends StatelessWidget {
                     style: primaryTextStyle,
                   ),
                   Text(
-                    '\$${cartProvider.totalPrice()}',
+                    // '\$${cartProvider.totalPrice()}',
+                    'Rp ${cartProvider.totalPrice().toStringAsFixed(0).replaceAll('.', ',')}',
                     style: priceTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,
@@ -152,12 +138,13 @@ class CartPage extends StatelessWidget {
                       'Lanjutkan Pembayaran',
                       style: primaryTextStyle.copyWith(
                         fontSize: 16,
+                        color: whiteColor,
                         fontWeight: semiBold,
                       ),
                     ),
                     Icon(
                       Icons.arrow_forward,
-                      color: primaryColor,
+                      color: whiteColor,
                     ),
                   ],
                 ),
@@ -169,10 +156,9 @@ class CartPage extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: header(),
-      body: cartProvider.carts.length == 0 ? emptyCart() : content(),
-      bottomNavigationBar:
-          cartProvider.carts.length == 0 ? SizedBox() : customBottomNav(),
-    );
+        appBar: header(),
+        body: cartProvider.carts.length == 0 ? emptyCart() : content(),
+        bottomNavigationBar:
+            cartProvider.carts.length == 0 ? SizedBox() : customBottomNav());
   }
 }

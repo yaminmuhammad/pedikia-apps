@@ -21,6 +21,7 @@ class CartCard extends StatelessWidget {
         vertical: 10,
       ),
       decoration: BoxDecoration(
+        color: secondaryColor,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -48,10 +49,13 @@ class CartCard extends StatelessWidget {
                   children: [
                     Text(
                       cart.service.name,
-                      style: primaryTextStyle.copyWith(fontWeight: semiBold),
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: semiBold,
+                      ),
                     ),
                     Text(
-                      '\$${cart.service.price}',
+                      // '\$${cart.service.price}',
+                      'Rp ${cart.service.price.toStringAsFixed(0).replaceAll('.', ',')}',
                       style: priceTextStyle,
                     ),
                   ],
@@ -72,7 +76,7 @@ class CartCard extends StatelessWidget {
                     height: 2,
                   ),
                   Text(
-                    cart.quantity.toString(),
+                    '${cart.quantity} jam',
                     style: primaryTextStyle.copyWith(
                       fontWeight: medium,
                     ),

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pedikia/models/service_model.dart';
 import 'package:pedikia/pages/checkout_page.dart';
+import 'package:pedikia/providers/cart_provider.dart';
 import 'package:pedikia/providers/wishlist_provider.dart';
 import 'package:pedikia/theme.dart';
 import 'package:pedikia/widget/bullet_widget.dart';
@@ -19,12 +20,73 @@ class _DetailServicePageState extends State<DetailServicePage> {
   @override
   Widget build(BuildContext context) {
     WishlistProvider wishlistProvider = Provider.of<WishlistProvider>(context);
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
 
     final List<String> imgLists = [
       'assets/image_baby6.png',
       'assets/image_baby6.png',
       'assets/image_baby6.png',
     ];
+
+    Future<void> showSuccessDialog() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) => Container(
+          width: MediaQuery.of(context).size.width - (2 * defaultMargin),
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.close,
+                        color: primaryColor,
+                      ),
+                    ),
+                  ),
+                  Image.asset(
+                    'assets/icon_success.png',
+                    width: 100,
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    'Horee :)',
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 18,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    'Berhasil ditambahkan ke keranjang',
+                    style: secondaryTextStyle.copyWith(
+                      fontSize: 14,
+                      color: timeColor,
+                      fontWeight: regular,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
 
     Widget carouselHeader() {
       return CarouselSlider(
@@ -162,12 +224,8 @@ class _DetailServicePageState extends State<DetailServicePage> {
         width: 364,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => CheckoutPage(),
-              ),
-            );
+            cartProvider.addCart(widget.service);
+            showSuccessDialog();
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: primaryColor,
@@ -176,7 +234,7 @@ class _DetailServicePageState extends State<DetailServicePage> {
             ),
           ),
           child: Text(
-            'Pilih',
+            'Masukkan Keranjang',
             style: primaryTextStyle.copyWith(
               fontSize: 16.0,
               fontWeight: bold,

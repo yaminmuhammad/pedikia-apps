@@ -123,7 +123,8 @@ class _MainPageState extends State<MainPage> {
     }
 
     return Scaffold(
-      floatingActionButton: HelpButton(),
+      floatingActionButton:
+          pageProvider.currentIndex == 0 ? HelpButton() : SizedBox(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: CustomBottomNav(),
       body: Body(),
