@@ -15,7 +15,7 @@ class CartPage extends StatelessWidget {
         backgroundColor: primaryColor,
         centerTitle: true,
         title: Text(
-          'Keranjang',
+          'Cart',
           style: primaryTextStyle.copyWith(
             fontSize: 20,
             color: whiteColor,

@@ -1,184 +1,164 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pedikia/pages/home/edit_profile_page.dart';
+import 'package:pedikia/models/user_model.dart';
+import 'package:pedikia/providers/auth_provider.dart';
 import 'package:pedikia/theme.dart';
+import 'package:provider/provider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
-class ProfilePage extends StatefulWidget {
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  @override
-  void initState() {
-    // ignore: todo
-    // TODO: implement initState
-    super.initState();
-  }
-
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    CupertinoPageRoute(
-                        builder: (context) => EditProfilePage()));
-              },
-              child: Text(
-                "Ubah",
-                style: primaryTextStyle.copyWith(
-                    color: primaryColor, fontWeight: medium, fontSize: 20),
-              ),
-            ),
-            SizedBox(width: 12.0)
-          ],
-        ),
-        body: SingleChildScrollView(
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
+    Widget header() {
+      return AppBar(
+        backgroundColor: whiteColor,
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        flexibleSpace: SafeArea(
           child: Container(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 20.0),
-                  height: 150,
-                  width: 150,
-                  child: CircleAvatar(
-                    backgroundColor: greyColor,
-                    backgroundImage: AssetImage(""),
+            padding: EdgeInsets.all(
+              defaultMargin,
+            ),
+            child: Row(
+              children: [
+                ClipOval(
+                  child: CachedNetworkImage(
+                    imageUrl: user.profilePhotoUrl,
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
-                SizedBox(height: 30.0),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                SizedBox(
+                  width: 16,
+                ),
+                Expanded(
                   child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Center(
-                            child: Expanded(
-                              child: TextFormField(
-                                initialValue: 'Nama',
-                                enabled: false,
-                                style: subtitleTextStyle,
-                                decoration: InputDecoration(
-                                  alignLabelWithHint: true,
-                                  labelText: 'Nama',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                      color: Color.fromARGB(1, 187, 186, 186),
-                                      width: 1.5,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hallo, ${user.name}',
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 24,
+                          fontWeight: semiBold,
                         ),
-                        SizedBox(height: 20.0),
-                        Container(
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Center(
-                            child: Expanded(
-                              child: TextFormField(
-                                keyboardType: TextInputType.emailAddress,
-                                initialValue: 'xxx@xxx.xxx',
-                                enabled: false,
-                                style: subtitleTextStyle,
-                                decoration: InputDecoration(
-                                  alignLabelWithHint: true,
-                                  labelText: 'Email',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                      color: Color.fromARGB(1, 187, 186, 186),
-                                      width: 1.5,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                      ),
+                      Text(
+                        '@${user.email}',
+                        style: subtitleTextStyle.copyWith(
+                          fontSize: 16,
                         ),
-                        SizedBox(height: 20.0),
-                        Container(
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Center(
-                            child: Expanded(
-                              child: TextFormField(
-                                keyboardType: TextInputType.phone,
-                                initialValue: '08XXXXXXXXXX',
-                                enabled: false,
-                                style: subtitleTextStyle,
-                                decoration: InputDecoration(
-                                  alignLabelWithHint: true,
-                                  labelText: 'Nomor Handphone/WhatsApp',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                      color: Color.fromARGB(1, 187, 186, 186),
-                                      width: 1.5,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 5.0),
-                        Container(
-                          height: 150,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Center(
-                            child: Expanded(
-                              child: TextFormField(
-                                maxLines: 4,
-                                keyboardType: TextInputType.text,
-                                initialValue:
-                                    'Jalan Alpha Desa Betha Kecamatan Gamma Kabupaten Delta',
-                                enabled: false,
-                                style: subtitleTextStyle,
-                                decoration: InputDecoration(
-                                  alignLabelWithHint: true,
-                                  labelText: 'Alamat Lengkap',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                      color: Color.fromARGB(1, 187, 186, 186),
-                                      width: 1.5,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ]),
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // Navigator.pushNamedAndRemoveUntil(
+                    //     context, '/sign-in', (route) => false);
+                  },
+                  child: Image.asset(
+                    'assets/button_exit.png',
+                    width: 20,
+                  ),
                 ),
               ],
             ),
           ),
-        ));
+        ),
+      );
+    }
+
+    Widget menuItem(String text) {
+      return Container(
+        margin: EdgeInsets.only(top: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              text,
+              style: primaryTextStyle.copyWith(
+                fontSize: 13,
+                color: timeColor,
+              ),
+            ),
+            Icon(
+              Icons.chevron_right,
+              color: timeColor,
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget content() {
+      return Expanded(
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(
+            horizontal: defaultMargin,
+          ),
+          decoration: BoxDecoration(
+              // color: backgroundColor3,
+              ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Account',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: semiBold,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  // Navigator.pushNamed(context, '/edit-profile');
+                },
+                child: menuItem(
+                  'Edit Profile',
+                ),
+              ),
+              menuItem(
+                'Your Orders',
+              ),
+              menuItem(
+                'Help',
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                'General',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: semiBold,
+                ),
+              ),
+              menuItem(
+                'Privacy & Policy',
+              ),
+              menuItem(
+                'Term of Service',
+              ),
+              menuItem(
+                'Rate App',
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return Column(
+      children: [
+        header(),
+        content(),
+      ],
+    );
   }
 }
