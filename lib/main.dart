@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pedikia/pages/cart_page.dart';
+import 'package:pedikia/pages/checkout_page.dart';
 import 'package:pedikia/pages/home/main_page.dart';
 import 'package:pedikia/pages/sign_in_page.dart';
 import 'package:pedikia/pages/sign_up_page.dart';
 import 'package:pedikia/pages/splash_page.dart';
 import 'package:pedikia/providers/auth_provider.dart';
+import 'package:pedikia/providers/transaction_provider.dart';
 import 'package:pedikia/providers/wishlist_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:pedikia/providers/serve_provider.dart';
@@ -32,6 +35,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => CartProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => TransactionProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -40,6 +46,9 @@ class MyApp extends StatelessWidget {
           '/sign-in': (context) => SignInPage(),
           '/sign-up': (context) => SignUpPage(),
           '/home': (context) => MainPage(),
+          '/cart': (context) => CartPage(),
+          '/checkout': (context) => CheckoutPage(),
+          // '/checkout-success' : (context) =>
         },
       ),
     );

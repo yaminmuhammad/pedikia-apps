@@ -81,6 +81,9 @@ class CartPage extends StatelessWidget {
         height: 180,
         child: Column(
           children: [
+            SizedBox(
+              height: 30,
+            ),
             Container(
               margin: EdgeInsets.symmetric(
                 horizontal: defaultMargin,

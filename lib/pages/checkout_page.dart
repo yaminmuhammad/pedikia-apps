@@ -1,12 +1,12 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:lottie/lottie.dart';
-import 'package:material_dialogs/material_dialogs.dart';
-import 'package:material_dialogs/widgets/buttons/icon_button.dart';
-import 'package:pedikia/pages/home/home_page.dart';
-import 'package:pedikia/pages/home/main_page.dart';
+import 'package:pedikia/providers/auth_provider.dart';
+import 'package:pedikia/providers/cart_provider.dart';
+import 'package:pedikia/providers/transaction_provider.dart';
 import 'package:pedikia/theme.dart';
+import 'package:pedikia/widget/loading_button.dart';
+import 'package:provider/provider.dart';
+
+import '../widget/checkout_card.dart';
 
 class CheckoutPage extends StatefulWidget {
   @override
@@ -14,416 +14,323 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
-  bool isChecked = false;
-  String _date = "Not set";
-  String _time = "Not set";
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    Widget selectedService() {
-      return Container(
-        margin: EdgeInsets.only(
-          top: 10.0,
-          left: 20.0,
-          right: 20.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Layanan yang dipilih',
-              style: primaryTextStyle.copyWith(
-                fontSize: 14,
-                fontWeight: bold,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                top: 10,
-              ),
-              height: 90,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(0, 3)),
-                ],
-              ),
-              child: Container(
-                padding: EdgeInsets.only(
-                  top: 20.0,
-                  left: 10.0,
-                  right: 10.0,
-                  bottom: 10.0,
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            'Baby  Massage  (45 Menit)',
-                            style: primaryTextStyle.copyWith(
-                              fontSize: 12,
-                              color: Color(0xff4F4F4F),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Rp. 90.000,-',
-                          style: primaryTextStyle.copyWith(
-                            fontSize: 12,
-                            color: Color(0xff4F4F4F),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      height: 20,
-                      color: Colors.black,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            'Total',
-                            style: primaryTextStyle.copyWith(
-                              fontSize: 12,
-                              fontWeight: bold,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Rp. 90.000,-',
-                          style: primaryTextStyle.copyWith(
-                            fontSize: 12,
-                            fontWeight: bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+    TransactionProvider transactionProvider =
+        Provider.of<TransactionProvider>(context);
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+
+    handleCheckout() async {
+      setState(() {
+        isLoading = true;
+      });
+
+      if (await transactionProvider.checkout(
+        authProvider.user.token,
+        cartProvider.carts,
+        cartProvider.totalPrice(),
+      )) {
+        cartProvider.carts = [];
+        Navigator.pushNamedAndRemoveUntil(
+            context, '/checkout-success', (route) => false);
+      }
+
+      setState(() {
+        isLoading = false;
+      });
     }
 
-    Widget addressInput() {
-      return Container(
-        margin: EdgeInsets.only(
-          top: 30.0,
-          left: 20.0,
-          right: 20.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Masukkan Alamat Lengkap',
-              style: primaryTextStyle.copyWith(
-                fontSize: 14,
-                fontWeight: bold,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                top: 10,
-              ),
-              // height: 90,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(0, 3)),
-                ],
-              ),
-              child: Container(
-                padding: EdgeInsets.only(
-                  left: 10.0,
-                  right: 10.0,
-                ),
-                child: TextField(
-                  style: primaryTextStyle.copyWith(
-                    fontSize: 12,
-                    color: Color(0xff4F4F4F),
-                  ),
-                  decoration: InputDecoration(
-                    hintText: 'Masukkan Alamat Lengkap',
-                    hintStyle: primaryTextStyle.copyWith(
-                      fontSize: 12,
-                      color: Color(0xff4F4F4F),
-                    ),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget dateInput() {
-      return Container(
-        margin: EdgeInsets.only(
-          top: 30.0,
-          left: 20.0,
-          right: 20.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Tanggal Reservasi',
-              style: primaryTextStyle.copyWith(
-                fontSize: 14,
-                fontWeight: bold,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                top: 10,
-              ),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(0, 3)),
-                ],
-              ),
-              child: Container(
-                padding: EdgeInsets.only(
-                  left: 10.0,
-                  right: 10.0,
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    DatePicker.showDateTimePicker(context,
-                        theme: DatePickerTheme(
-                          doneStyle: TextStyle(color: primaryColor),
-                        ),
-                        showTitleActions: true,
-                        minTime: DateTime.now(),
-                        maxTime: DateTime(2024, 6, 7, 05, 09),
-                        onChanged: (date) {
-                      print('change $date in time zone ' +
-                          date.timeZoneOffset.inHours.toString());
-                      _date = date.timeZoneOffset.inHours.toString();
-                    }, onConfirm: (date) {
-                      _date = date.timeZoneOffset.inHours.toString();
-                      print('confirm $date');
-                    }, locale: LocaleType.id, currentTime: DateTime.now());
-                    setState(() {});
-                  },
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.edit_calendar_rounded,
-                        color: primaryColor,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Pilih Tanggal Reservasi',
-                        style: TextStyle(color: primaryColor),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget confirmBox() {
-      return Container(
-        margin: EdgeInsets.only(
-          top: 30.0,
-          left: 20.0,
-          right: 20.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                top: 10,
-              ),
-              // height: 90,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(0, 3)),
-                ],
-              ),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        'Saya mengerti bahwa Pedikia mengawasi dan bertindak tegas terhadap segala pelanggaran, termasuk pelecehan seksual sesuai hukum dan undang-undang yang berlaku.',
-                        style: primaryTextStyle.copyWith(
-                          fontSize: 12,
-                          color: Color(0xff4F4F4F),
-                        ),
-                      ),
-                    ),
-                    Checkbox(
-                      checkColor: Colors.white,
-                      activeColor: primaryColor,
-                      value: isChecked,
-                      onChanged: (bool value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget butttonDialog(BuildContext context) {
-      return MaterialButton(
-        minWidth: 300,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        color: primaryColor,
-        onPressed: () => Dialogs.materialDialog(
-          color: Colors.white,
-          msg: 'Terapis akan segera menghubungi anda',
-          title: 'Selamat, reservasi berhasil dibuat!',
-          titleStyle: primaryTextStyle.copyWith(
-            fontSize: 15,
-            fontWeight: bold,
-          ),
-          customView: Container(
-            height: 200,
-            width: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/baby_happy.png'),
-              ),
-            ),
-          ),
-          dialogWidth: kIsWeb ? 0.3 : null,
-          context: context,
-          actions: [
-            IconsButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/home');
-              },
-              text: 'Oke',
-              color: primaryColor,
-              textStyle: primaryTextStyle.copyWith(
-                fontSize: 20,
-                fontWeight: medium,
-                color: Colors.white,
-              ),
-              iconColor: Colors.white,
-            ),
-          ],
-        ),
-        child: Text(
-          "Reservasi",
+    Widget header() {
+      return AppBar(
+        backgroundColor: primaryColor,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          'Checkout Details',
           style: primaryTextStyle.copyWith(
             fontSize: 20,
-            fontWeight: medium,
-            color: Colors.white,
+            color: whiteColor,
+            fontWeight: semiBold,
           ),
         ),
+      );
+    }
+
+    Widget content() {
+      return ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        children: [
+          // NOTE: LIST ITEMS
+          Container(
+            margin: EdgeInsets.only(
+              top: defaultMargin,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'List Items',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: medium,
+                  ),
+                ),
+                Column(
+                  children: cartProvider.carts
+                      .map(
+                        (cart) => CheckoutCard(cart),
+                      )
+                      .toList(),
+                ),
+              ],
+            ),
+          ),
+
+          // NOTE: ADDRESS DETAILS
+          Container(
+            margin: EdgeInsets.only(
+              top: defaultMargin,
+            ),
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: backgroundColor4,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Address Details',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: medium,
+                  ),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  children: [
+                    Column(
+                      children: [
+                        Image.asset(
+                          'assets/icon_store_location.png',
+                          width: 40,
+                        ),
+                        Image.asset(
+                          'assets/icon_line.png',
+                          height: 30,
+                        ),
+                        Image.asset(
+                          'assets/icon_your_address.png',
+                          width: 40,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Store Location',
+                          style: secondaryTextStyle.copyWith(
+                            fontSize: 12,
+                            fontWeight: light,
+                          ),
+                        ),
+                        Text(
+                          'Adidas Core',
+                          style: primaryTextStyle.copyWith(
+                            fontWeight: medium,
+                          ),
+                        ),
+                        SizedBox(
+                          height: defaultMargin,
+                        ),
+                        Text(
+                          'Your Address',
+                          style: secondaryTextStyle.copyWith(
+                            fontSize: 12,
+                            fontWeight: light,
+                          ),
+                        ),
+                        Text(
+                          'Marsemoon',
+                          style: primaryTextStyle.copyWith(
+                            fontWeight: medium,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+          // NOTE: PAYMENT SUMMARY
+          Container(
+            margin: EdgeInsets.only(
+              top: defaultMargin,
+            ),
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: backgroundColor4,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Payment Summary',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: medium,
+                  ),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Product Quantity',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      '${cartProvider.totalItems()} Items',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Product Price',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      '\$${cartProvider.totalPrice()}',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Shipping',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      'Free',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff2E3141),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total',
+                      style: priceTextStyle.copyWith(
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                    Text(
+                      '\$${cartProvider.totalPrice()}',
+                      style: priceTextStyle.copyWith(
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+          // NOTE: CHECKOUT BUTTON
+          SizedBox(
+            height: defaultMargin,
+          ),
+          Divider(
+            thickness: 1,
+            color: Color(0xff2E3141),
+          ),
+          isLoading
+              ? Container(
+                  margin: EdgeInsets.only(
+                    bottom: 30,
+                  ),
+                  child: LoadingButton(),
+                )
+              : Container(
+                  height: 50,
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(
+                    vertical: defaultMargin,
+                  ),
+                  child: TextButton(
+                    onPressed: handleCheckout,
+                    style: TextButton.styleFrom(
+                      backgroundColor: primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Text(
+                      'Checkout Now',
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                  ),
+                ),
+        ],
       );
     }
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      bottomSheet: Container(
-        margin: EdgeInsets.only(
-          left: 20.0,
-          right: 20.0,
-          bottom: 20.0,
-        ),
-        height: 40.0,
-        width: 364,
-        child: butttonDialog(
-          context,
-        ),
-      ),
-      appBar: AppBar(
-        title: Text(
-          'Checkout',
-          style: primaryTextStyle.copyWith(
-            fontSize: 18.0,
-            fontWeight: bold,
-            color: primaryColor,
-          ),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: primaryColor,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(
-          bottom: 100.0,
-        ),
-        child: Column(
-          children: [
-            selectedService(),
-            addressInput(),
-            dateInput(),
-            confirmBox(),
-          ],
-        ),
-      ),
+      appBar: header(),
+      body: content(),
     );
   }
 }
