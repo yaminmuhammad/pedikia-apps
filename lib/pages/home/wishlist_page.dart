@@ -5,6 +5,7 @@ import 'package:pedikia/providers/wishlist_provider.dart';
 import 'package:pedikia/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:pedikia/widget/wishlist_card.dart';
+import 'package:pedikia/providers/serve_provider.dart';
 
 class WishlistPage extends StatelessWidget {
   @override

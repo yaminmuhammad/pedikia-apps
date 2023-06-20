@@ -233,13 +233,23 @@ class _DetailServicePageState extends State<DetailServicePage> {
               borderRadius: BorderRadius.circular(10.0),
             ),
           ),
-          child: Text(
-            'Masukkan Keranjang',
-            style: primaryTextStyle.copyWith(
-              fontSize: 16.0,
-              fontWeight: bold,
-              color: Colors.white,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Add to Cart ',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16.0,
+                  fontWeight: bold,
+                  color: Colors.white,
+                ),
+              ),
+              Icon(
+                Icons.add_shopping_cart,
+                color: Colors.white,
+              ),
+            ],
           ),
         ),
       ),

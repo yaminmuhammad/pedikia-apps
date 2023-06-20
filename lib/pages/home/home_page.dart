@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
-    ServeProvider serveProvider = Provider.of(context);
+    ServeProvider serveProvider = Provider.of<ServeProvider>(context);
 
     Widget Header() {
       return Stack(

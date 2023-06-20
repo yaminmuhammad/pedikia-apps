@@ -98,7 +98,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             ),
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: backgroundColor4,
+              color: secondaryColor,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -119,15 +119,16 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     Column(
                       children: [
                         Image.asset(
-                          'assets/icon_store_location.png',
+                          'assets/icon_address.png',
                           width: 40,
                         ),
                         Image.asset(
                           'assets/icon_line.png',
                           height: 30,
+                          color: Colors.black,
                         ),
                         Image.asset(
-                          'assets/icon_your_address.png',
+                          'assets/icon_city.png',
                           width: 40,
                         ),
                       ],
@@ -139,9 +140,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Store Location',
+                          'Alamat',
                           style: secondaryTextStyle.copyWith(
                             fontSize: 12,
+                            color: Colors.black,
                             fontWeight: light,
                           ),
                         ),
@@ -155,9 +157,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           height: defaultMargin,
                         ),
                         Text(
-                          'Your Address',
+                          'Kota',
                           style: secondaryTextStyle.copyWith(
                             fontSize: 12,
+                            color: Colors.black,
                             fontWeight: light,
                           ),
                         ),
@@ -182,7 +185,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             ),
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: backgroundColor4,
+              color: secondaryColor,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -202,13 +205,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Product Quantity',
+                      'Total Waktu',
                       style: secondaryTextStyle.copyWith(
                         fontSize: 12,
+                        color: Colors.black,
                       ),
                     ),
                     Text(
-                      '${cartProvider.totalItems()} Items',
+                      '${cartProvider.totalItems()} Jam',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -222,13 +226,15 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Product Price',
+                      'Total Harga',
                       style: secondaryTextStyle.copyWith(
                         fontSize: 12,
+                        color: Colors.black,
                       ),
                     ),
                     Text(
-                      '\$${cartProvider.totalPrice()}',
+                      // '\$${cartProvider.totalPrice()}',
+                      'Rp ${cartProvider.totalPrice().toStringAsFixed(0).replaceAll('.', ',')}',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -242,13 +248,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Shipping',
+                      'Biaya Admin',
                       style: secondaryTextStyle.copyWith(
                         fontSize: 12,
+                        color: Colors.black,
                       ),
                     ),
                     Text(
-                      'Free',
+                      'Gratis',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -275,7 +282,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                     ),
                     Text(
-                      '\$${cartProvider.totalPrice()}',
+                      'Rp ${cartProvider.totalPrice().toStringAsFixed(0).replaceAll('.', ',')}',
                       style: priceTextStyle.copyWith(
                         fontWeight: semiBold,
                       ),
@@ -319,6 +326,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       'Checkout Now',
                       style: primaryTextStyle.copyWith(
                         fontSize: 16,
+                        color: whiteColor,
                         fontWeight: semiBold,
                       ),
                     ),

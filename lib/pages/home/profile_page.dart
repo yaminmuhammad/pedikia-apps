@@ -13,7 +13,7 @@ class ProfilePage extends StatelessWidget {
 
     Widget header() {
       return AppBar(
-        backgroundColor: whiteColor,
+        backgroundColor: primaryColor,
         automaticallyImplyLeading: false,
         elevation: 0,
         flexibleSpace: SafeArea(
@@ -38,31 +38,31 @@ class ProfilePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hallo, ${user.name}',
+                        '${user.name}',
                         style: primaryTextStyle.copyWith(
                           fontSize: 24,
+                          color: whiteColor,
                           fontWeight: semiBold,
                         ),
                       ),
                       Text(
                         '@${user.email}',
                         style: subtitleTextStyle.copyWith(
-                          fontSize: 16,
-                        ),
+                            fontSize: 16, color: whiteColor),
                       ),
                     ],
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    // Navigator.pushNamedAndRemoveUntil(
-                    //     context, '/sign-in', (route) => false);
-                  },
-                  child: Image.asset(
-                    'assets/button_exit.png',
-                    width: 20,
-                  ),
-                ),
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.pushNamedAndRemoveUntil(
+                //         context, '/sign-in', (route) => false);
+                //   },
+                //   child: Image.asset(
+                //     'assets/button_exit.png',
+                //     width: 20,
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -124,9 +124,6 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               menuItem(
-                'Your Orders',
-              ),
-              menuItem(
                 'Help',
               ),
               SizedBox(
@@ -148,6 +145,43 @@ class ProfilePage extends StatelessWidget {
               menuItem(
                 'Rate App',
               ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                height: 40,
+                width: double.infinity,
+                margin: EdgeInsets.only(top: 15),
+                child: TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Sign Out',
+                        style: whiteTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: medium,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        Icons.exit_to_app,
+                        color: whiteColor,
+                        size: 20,
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -158,6 +192,7 @@ class ProfilePage extends StatelessWidget {
       children: [
         header(),
         content(),
+        // logout(),
       ],
     );
   }
