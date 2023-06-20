@@ -1,12 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pedikia/models/service_model.dart';
-import 'package:pedikia/pages/checkout_page.dart';
 import 'package:pedikia/providers/cart_provider.dart';
 import 'package:pedikia/providers/wishlist_provider.dart';
 import 'package:pedikia/theme.dart';
-import 'package:pedikia/widget/bullet_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
 
 class DetailServicePage extends StatefulWidget {
   final ServiceModel service;
@@ -99,11 +99,31 @@ class _DetailServicePageState extends State<DetailServicePage> {
         ),
         items: widget.service.galleries
             .map(
-              (image) => Image.network(
-                image.url,
+              (image) => CachedNetworkImage(
+                imageUrl: image.url,
                 width: MediaQuery.of(context).size.width,
                 height: 310,
                 fit: BoxFit.cover,
+                placeholder: (context, url) => Shimmer.fromColors(
+                  baseColor: Colors.grey.shade300,
+                  highlightColor: Colors.grey.shade100,
+                  enabled: true,
+                  child: SingleChildScrollView(
+                    physics: NeverScrollableScrollPhysics(),
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade300,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             )
             .toList(),
