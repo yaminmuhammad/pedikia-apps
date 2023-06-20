@@ -174,7 +174,7 @@ class _DetailServicePageState extends State<DetailServicePage> {
                         SnackBar(
                           backgroundColor: priceColor,
                           content: Text(
-                            'Has been added to the Wishlist',
+                            'Telah ditambahkan ke wishlist',
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -184,7 +184,7 @@ class _DetailServicePageState extends State<DetailServicePage> {
                         SnackBar(
                           backgroundColor: alertColor,
                           content: Text(
-                            'Has been removed from the Wishlist',
+                            'Telah dihapus dari wishlist',
                             textAlign: TextAlign.center,
                           ),
                         ),

@@ -323,7 +323,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                     ),
                     child: Text(
-                      'Checkout Now',
+                      'Checkout Sekarang',
                       style: primaryTextStyle.copyWith(
                         fontSize: 16,
                         color: whiteColor,

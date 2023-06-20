@@ -8,7 +8,10 @@ class TransactionService {
   String baseUrl = "https://testing.tanpabatasgroup.com/api";
 
   Future<bool> checkout(
-      String token, List<CartModel> carts, double totalPrice) async {
+    String token,
+    List<CartModel> carts,
+    double totalPrice,
+  ) async {
     var url = "$baseUrl/checkout";
     var headers = {
       'Content-Type': 'application/json',
