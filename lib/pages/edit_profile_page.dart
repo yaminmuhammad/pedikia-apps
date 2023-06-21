@@ -18,7 +18,7 @@ class EditProfilePage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        backgroundColor: secondaryColor,
+        backgroundColor: primaryColor,
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -28,7 +28,7 @@ class EditProfilePage extends StatelessWidget {
           IconButton(
             icon: Icon(
               Icons.check,
-              color: primaryColor,
+              color: Colors.green,
             ),
             onPressed: () {},
           )
@@ -46,15 +46,15 @@ class EditProfilePage extends StatelessWidget {
           children: [
             Text(
               'Name',
-              style: secondaryTextStyle.copyWith(
+              style: primaryTextStyle.copyWith(
                 fontSize: 13,
               ),
             ),
             TextFormField(
-              style: primaryTextStyle,
+              style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 hintText: user.name,
-                hintStyle: primaryTextStyle,
+                // hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
                     color: subtitleColor,
@@ -77,15 +77,15 @@ class EditProfilePage extends StatelessWidget {
           children: [
             Text(
               'Email Address',
-              style: secondaryTextStyle.copyWith(
+              style: primaryTextStyle.copyWith(
                 fontSize: 13,
               ),
             ),
             TextFormField(
-              style: primaryTextStyle,
+              style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 hintText: user.email,
-                hintStyle: primaryTextStyle,
+                // hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
                     color: subtitleColor,

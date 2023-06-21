@@ -153,7 +153,10 @@ class ProfilePage extends StatelessWidget {
                 width: double.infinity,
                 margin: EdgeInsets.only(top: 15),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/sign-in', (route) => false);
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: primaryColor,
                     shape: RoundedRectangleBorder(
