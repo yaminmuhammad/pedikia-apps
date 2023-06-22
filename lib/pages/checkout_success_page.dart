@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pedikia/theme.dart';
+import 'package:lottie/lottie.dart';
 
 class CheckoutSuccessPage extends StatelessWidget {
   @override
@@ -20,15 +21,16 @@ class CheckoutSuccessPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/success.png',
+            Lottie.asset(
+              'assets/success.json',
+              alignment: Alignment.bottomCenter,
               width: 150,
             ),
             SizedBox(
               height: 90,
             ),
             Text(
-              'You made a transaction',
+              'Berhasil melakukan pesanan',
               style: primaryTextStyle.copyWith(
                 fontSize: 18,
                 fontWeight: medium,
@@ -38,7 +40,7 @@ class CheckoutSuccessPage extends StatelessWidget {
               height: 16,
             ),
             Text(
-              'Stay at home while we\nprepare your dream shoes',
+              'Harap tunggu terapis kami\n ke Rumah Anda',
               style: subtitleTextStyle.copyWith(
                 fontSize: 14,
                 fontWeight: regular,
@@ -66,6 +68,7 @@ class CheckoutSuccessPage extends StatelessWidget {
                   'Order Other Shoes',
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
+                    color: whiteColor,
                     fontWeight: medium,
                   ),
                 ),
