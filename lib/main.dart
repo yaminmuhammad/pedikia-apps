@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import 'package:pedikia/providers/serve_provider.dart';
 import 'package:pedikia/providers/page_provider.dart';
 import 'package:pedikia/providers/cart_provider.dart';
+import 'package:pedikia/pages/checkout_success_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
           '/edit-profile': (context) => EditProfilePage(),
           '/cart': (context) => CartPage(),
           '/checkout': (context) => CheckoutPage(),
+          '/checkout-success': (context) => CheckoutSuccessPage(),
           // '/checkout-success' : (context) =>
         },
       ),

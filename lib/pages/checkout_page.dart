@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pedikia/providers/auth_provider.dart';
-import 'package:pedikia/providers/cart_provider.dart';
 import 'package:pedikia/providers/transaction_provider.dart';
 import 'package:pedikia/theme.dart';
 import 'package:pedikia/widget/loading_button.dart';
 import 'package:provider/provider.dart';
-
+import 'package:pedikia/providers/cart_provider.dart';
 import '../widget/checkout_card.dart';
 
 class CheckoutPage extends StatefulWidget {
@@ -34,8 +33,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
         cartProvider.totalPrice(),
       )) {
         cartProvider.carts = [];
-        Navigator.pushNamedAndRemoveUntil(
-            context, '/checkout-success', (route) => false);
+        // Navigator.pushNamedAndRemoveUntil(
+        //     context, '/checkout-success', (route) => false);
       }
 
       setState(() {
@@ -309,10 +308,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   child: LoadingButton(),
                 )
               : Container(
-                  height: 50,
+                  height: 40,
                   width: double.infinity,
-                  margin: EdgeInsets.symmetric(
-                    vertical: defaultMargin,
+                  margin: EdgeInsets.only(
+                    top: 15,
+                    bottom: 30,
                   ),
                   child: TextButton(
                     onPressed: handleCheckout,

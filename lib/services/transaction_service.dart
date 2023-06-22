@@ -1,34 +1,33 @@
 import 'dart:convert';
-
-import 'package:convert/convert.dart';
 import 'package:http/http.dart' as http;
 import 'package:pedikia/models/cart_model.dart';
 
 class TransactionService {
-  String baseUrl = "https://testing.tanpabatasgroup.com/api";
+  // String baseUrl = "https://testing.tanpabatasgroup.com/api";
+  String baseUrl = "http://10.0.2.2:8000/api";
 
   Future<bool> checkout(
     String token,
     List<CartModel> carts,
     double totalPrice,
   ) async {
-    var url = "$baseUrl/checkout";
+    var url = '$baseUrl/checkout';
     var headers = {
       'Content-Type': 'application/json',
       'Authorization': token,
     };
     var body = jsonEncode(
       {
-        'address': 'Lemahabang',
-        'items': carts
+        "address": "Lemahabang",
+        "items": carts
             .map(
               (cart) => {
-                'id': cart.service.id,
-                'quantity': cart.quantity,
+                "id": cart.service.id,
+                "quantity": cart.quantity,
               },
             )
             .toList(),
-        'status': "PENDING",
+        "status": "PENDING",
         "total_price": totalPrice,
         "extra_price": 0,
       },

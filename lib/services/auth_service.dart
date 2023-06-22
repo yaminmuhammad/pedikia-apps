@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:pedikia/models/user_model.dart';
 
 class AuthService {
-  String baseUrl = "https://testing.tanpabatasgroup.com/api";
-  // 192.168.158.159
+  // String baseUrl = "https://testing.tanpabatasgroup.com/api";
+  String baseUrl = "http://10.0.2.2:8000/api";
 
   Future<UserModel> register({
     String name,
@@ -39,7 +39,7 @@ class AuthService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       UserModel user = UserModel.fromJson(data['user']);
-      user.token = 'Bearer' + data['access_token'];
+      user.token = 'Bearer ' + data['access_token'];
 
       return user;
     } else {
@@ -70,7 +70,7 @@ class AuthService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       UserModel user = UserModel.fromJson(data['user']);
-      user.token = 'Bearer' + data['access_token'];
+      user.token = 'Bearer ' + data['access_token'];
 
       return user;
     } else {
