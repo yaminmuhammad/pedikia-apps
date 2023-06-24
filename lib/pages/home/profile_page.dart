@@ -5,11 +5,44 @@ import 'package:pedikia/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class ProfilePage extends StatelessWidget {
+import '../../widget/loading_button.dart';
+
+class ProfilePage extends StatefulWidget {
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
+
+    handleLogout() async {
+      setState(() {
+        isLoading = true;
+      });
+      bool result = await authProvider.logout();
+      if (result) {
+        Navigator.pushNamedAndRemoveUntil(
+            context, '/sign-in', (route) => false);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(
+              'Gagal Keluar!',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      }
+      setState(() {
+        isLoading = false;
+      });
+    }
 
     Widget header() {
       return AppBar(
@@ -92,6 +125,45 @@ class ProfilePage extends StatelessWidget {
       );
     }
 
+    Widget SignOutButton() {
+      return Container(
+        height: 40,
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 15),
+        child: TextButton(
+          onPressed: () {
+            handleLogout();
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Sign Out',
+                style: whiteTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: medium,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Icon(
+                Icons.exit_to_app,
+                color: whiteColor,
+                size: 20,
+              )
+            ],
+          ),
+        ),
+      );
+    }
+
     Widget content() {
       return Expanded(
         child: Container(
@@ -148,43 +220,7 @@ class ProfilePage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              Container(
-                height: 40,
-                width: double.infinity,
-                margin: EdgeInsets.only(top: 15),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, '/sign-in', (route) => false);
-                  },
-                  style: TextButton.styleFrom(
-                    backgroundColor: primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Sign Out',
-                        style: whiteTextStyle.copyWith(
-                          fontSize: 16,
-                          fontWeight: medium,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Icon(
-                        Icons.exit_to_app,
-                        color: whiteColor,
-                        size: 20,
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              isLoading ? LoadingButton() : SignOutButton(),
             ],
           ),
         ),
