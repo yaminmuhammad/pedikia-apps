@@ -82,10 +82,14 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<bool> logout() async {
+  var result = true;
+  Future<bool> logout(String token) async {
     try {
-      await AuthService().logoutUser();
-      return true;
+      if (await AuthService().logout(token)) {
+        result = true;
+      }
+
+      return result;
     } catch (e) {
       print(e);
       return false;

@@ -40,7 +40,7 @@ class AuthService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       UserModel user = UserModel.fromJson(data['user']);
-      var token = user.token = 'Bearer  + ${data['access_token']}';
+      var token = user.token = 'Bearer ${data['access_token']}';
 
       final prefs = await SharedPreferences.getInstance();
       prefs.setString('email', email);
@@ -72,11 +72,12 @@ class AuthService {
     );
 
     print(response.body);
+    print(response.statusCode);
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       UserModel user = UserModel.fromJson(data['user']);
-      var token = user.token = 'Bearer  + ${data['access_token']}';
+      var token = user.token = 'Bearer ${data['access_token']}';
 
       final prefs = await SharedPreferences.getInstance();
       prefs.setString('email', email);
@@ -203,23 +204,23 @@ class AuthService {
     }
   }
 
-  Future<bool> logoutUser() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var token = prefs.getString("token").toString();
-    var url = "$baseUrl/logout";
-    var header = {
-      'Content-Type': 'application/json',
-      'Authorization': token,
-    };
-    var response = await http.post(
-      Uri.parse(url),
-      headers: header,
-    );
-    if (response.statusCode == 200) {
-      await prefs.remove("token");
-      return true;
-    } else {
-      throw Exception("Gagal Logout");
-    }
-  }
+  // Future<bool> logoutUser() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   var token = prefs.getString("token").toString();
+  //   var url = "$baseUrl/logout";
+  //   var header = {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': token,
+  //   };
+  //   var response = await http.post(
+  //     Uri.parse(url),
+  //     headers: header,
+  //   );
+  //   if (response.statusCode == 200) {
+  //     await prefs.remove("token");
+  //     return true;
+  //   } else {
+  //     throw Exception("Gagal Logout");
+  //   }
+  // }
 }
