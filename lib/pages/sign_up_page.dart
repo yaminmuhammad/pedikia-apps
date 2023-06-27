@@ -57,7 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
         email: emailController.text,
         password: passwordController.text,
       )) {
-        Navigator.pushNamed(context, '/sign-in');
+        Navigator.pushNamed(context, '/home');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: Colors.green,
@@ -73,7 +73,7 @@ class _SignUpPageState extends State<SignUpPage> {
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            backgroundColor: Colors.red,
+            backgroundColor: alertColor,
             content: Text(
               'Gagal Register',
               textAlign: TextAlign.center,

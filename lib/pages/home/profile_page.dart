@@ -24,24 +24,143 @@ class _ProfilePageState extends State<ProfilePage> {
       setState(() {
         isLoading = true;
       });
-      bool result = await authProvider.logout();
-      if (result) {
+
+      if (await authProvider.logout(user.token)) {
         Navigator.pushNamedAndRemoveUntil(
             context, '/sign-in', (route) => false);
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            backgroundColor: Colors.red,
-            content: Text(
-              'Gagal Keluar!',
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Colors.green,
+            content: const Text(
+              'Logout Berhasil!',
               textAlign: TextAlign.center,
-            ),
-          ),
-        );
+            )));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: alertColor,
+            content: const Text(
+              'Gagal Logout!',
+              textAlign: TextAlign.center,
+            )));
       }
+
       setState(() {
         isLoading = false;
       });
+    }
+
+    confirmButtonLogout() {
+      return SizedBox(
+        width: 100,
+        height: 44,
+        child: TextButton(
+          onPressed: handleLogout,
+          style: TextButton.styleFrom(
+              backgroundColor: primaryColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12))),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              isLoading
+                  ? SizedBox(
+                      width: 12,
+                      height: 12,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        valueColor: AlwaysStoppedAnimation(
+                          primaryColor,
+                        ),
+                      ),
+                    )
+                  : const SizedBox(
+                      width: 0,
+                    ),
+              SizedBox(
+                width: isLoading ? -5 : 5,
+              ),
+              Text(
+                isLoading ? 'Loading' : 'Okay',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  color: whiteColor,
+                  fontWeight: medium,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    Future<void> showLogoutDialog() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) => SizedBox(
+          width: MediaQuery.of(context).size.width - (2 * defaultMargin),
+          child: AlertDialog(
+            // backgroundColor: backgroundColor3,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 300,
+                    child: Icon(
+                      Icons.logout,
+                      color: primaryColor,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    'Are You Sure To Logout?',
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 18,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      confirmButtonLogout(),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        height: 44,
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          style: TextButton.styleFrom(
+                              backgroundColor: whiteColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          child: Text(
+                            'Cancel',
+                            textAlign: TextAlign.center,
+                            style: primaryTextStyle.copyWith(
+                              fontSize: 16,
+                              fontWeight: medium,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
     }
 
     Widget header() {
@@ -132,7 +251,7 @@ class _ProfilePageState extends State<ProfilePage> {
         margin: EdgeInsets.only(top: 15),
         child: TextButton(
           onPressed: () {
-            handleLogout();
+            showLogoutDialog();
           },
           style: TextButton.styleFrom(
             backgroundColor: primaryColor,
@@ -220,7 +339,7 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(
                 height: 30,
               ),
-              isLoading ? LoadingButton() : SignOutButton(),
+              SignOutButton(),
             ],
           ),
         ),

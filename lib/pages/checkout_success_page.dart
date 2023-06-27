@@ -65,7 +65,7 @@ class CheckoutSuccessPage extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'Order Other Shoes',
+                  'Kembali ke Home',
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
                     color: whiteColor,
@@ -74,32 +74,32 @@ class CheckoutSuccessPage extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              width: 196,
-              height: 44,
-              margin: EdgeInsets.only(
-                top: 12,
-              ),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, '/cart', (route) => false);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Color(0xff39374B),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: Text(
-                  'View My Order',
-                  style: primaryTextStyle.copyWith(
-                    fontSize: 16,
-                    fontWeight: medium,
-                  ),
-                ),
-              ),
-            ),
+            // Container(
+            //   width: 196,
+            //   height: 44,
+            //   margin: EdgeInsets.only(
+            //     top: 12,
+            //   ),
+            //   child: TextButton(
+            //     onPressed: () {
+            //       Navigator.pushNamedAndRemoveUntil(
+            //           context, '/cart', (route) => false);
+            //     },
+            //     style: TextButton.styleFrom(
+            //       backgroundColor: Color(0xff39374B),
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(12),
+            //       ),
+            //     ),
+            //     child: Text(
+            //       'View My Order',
+            //       style: primaryTextStyle.copyWith(
+            //         fontSize: 16,
+            //         fontWeight: medium,
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       );
