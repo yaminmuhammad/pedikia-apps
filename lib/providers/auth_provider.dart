@@ -60,7 +60,9 @@ class AuthProvider with ChangeNotifier {
 
   Future<bool> editProfile({
     String name,
-    String username,
+    String phone,
+    String address,
+    String city,
     String email,
     String token,
   }) async {
@@ -68,6 +70,9 @@ class AuthProvider with ChangeNotifier {
       UserModel user = await AuthService().editProfile(
         name: name,
         // username: username,
+        phone: phone,
+        address: address,
+        city: city,
         email: email,
         token: token,
       );

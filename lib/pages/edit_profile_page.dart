@@ -10,6 +10,49 @@ class EditProfilePage extends StatelessWidget {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
 
+    TextEditingController nameController =
+        TextEditingController(text: user.name);
+    TextEditingController phoneController =
+        TextEditingController(text: user.phone);
+    TextEditingController addressController =
+        TextEditingController(text: user.address);
+    TextEditingController cityController =
+        TextEditingController(text: user.city);
+    TextEditingController emailController =
+        TextEditingController(text: user.email);
+
+    handleEditProfile() async {
+      if (await authProvider.editProfile(
+        name: nameController.text,
+        phone: phoneController.text,
+        address: addressController.text,
+        city: cityController.text,
+        email: emailController.text,
+        token: authProvider.user.token,
+      )) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.green,
+            content: const Text(
+              'Berhasil Update Profile!',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+        Navigator.pushNamed(context, '/home');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: alertColor,
+            content: const Text(
+              'Gagal Update Profile!',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      }
+    }
+
     Widget header() {
       return AppBar(
         leading: IconButton(
@@ -30,7 +73,9 @@ class EditProfilePage extends StatelessWidget {
               Icons.check,
               color: Colors.green,
             ),
-            onPressed: () {},
+            onPressed: () {
+              handleEditProfile();
+            },
           )
         ],
       );
@@ -51,9 +96,106 @@ class EditProfilePage extends StatelessWidget {
               ),
             ),
             TextFormField(
+              controller: nameController,
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 hintText: user.name,
+                // hintStyle: primaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: subtitleColor,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget phoneInput() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Phone',
+              style: primaryTextStyle.copyWith(
+                fontSize: 13,
+              ),
+            ),
+            TextFormField(
+              controller: phoneController,
+              style: TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                hintText: user.phone,
+                // hintStyle: primaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: subtitleColor,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget addressInput() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Address',
+              style: primaryTextStyle.copyWith(
+                fontSize: 13,
+              ),
+            ),
+            TextFormField(
+              controller: addressController,
+              style: TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                hintText: user.address,
+                // hintStyle: primaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: subtitleColor,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget cityInput() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'City',
+              style: primaryTextStyle.copyWith(
+                fontSize: 13,
+              ),
+            ),
+            TextFormField(
+              controller: cityController,
+              style: TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                hintText: user.city,
                 // hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -82,6 +224,7 @@ class EditProfilePage extends StatelessWidget {
               ),
             ),
             TextFormField(
+              controller: emailController,
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 hintText: user.email,
@@ -124,6 +267,9 @@ class EditProfilePage extends StatelessWidget {
               ),
             ),
             nameInput(),
+            phoneInput(),
+            addressInput(),
+            cityInput(),
             emailInput(),
           ],
         ),

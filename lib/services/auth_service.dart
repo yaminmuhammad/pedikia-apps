@@ -91,7 +91,9 @@ class AuthService {
 
   Future<UserModel> editProfile({
     String name,
-    String username,
+    String phone,
+    String address,
+    String city,
     String email,
     String token,
   }) async {
@@ -103,7 +105,9 @@ class AuthService {
     };
     var body = jsonEncode({
       'name': name,
-      // 'username': username,
+      'phone': phone,
+      'address': address,
+      'city': city,
       'email': email,
     });
 
