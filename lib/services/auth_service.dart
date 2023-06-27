@@ -40,7 +40,13 @@ class AuthService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       UserModel user = UserModel.fromJson(data['user']);
-      user.token = 'Bearer ' + data['access_token'];
+      var token = user.token = 'Bearer  + ${data['access_token']}';
+
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString('email', email);
+      prefs.setString('password', password);
+      prefs.setString('token', token);
+
       return user;
     } else {
       throw Exception('Gagal Register');
@@ -70,12 +76,54 @@ class AuthService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       UserModel user = UserModel.fromJson(data['user']);
-      user.token = 'Bearer ' + data['access_token'];
-      var prefs = await SharedPreferences.getInstance();
-      await prefs.setString("token", user.token);
+      var token = user.token = 'Bearer  + ${data['access_token']}';
+
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString('email', email);
+      prefs.setString('password', password);
+      prefs.setString('token', token);
       return user;
     } else {
       throw Exception('Gagal Login');
+    }
+  }
+
+  Future<UserModel> editProfile({
+    String name,
+    String username,
+    String email,
+    String token,
+  }) async {
+    var url = '$baseUrl/user';
+
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': token,
+    };
+    var body = jsonEncode({
+      'name': name,
+      // 'username': username,
+      'email': email,
+    });
+
+    var response = await http.post(
+      Uri.parse(url),
+      headers: headers,
+      body: body,
+    );
+
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body)['data'];
+      UserModel user = UserModel.fromJson(data);
+      user.token = token;
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString('email', email);
+
+      return user;
+    } else {
+      throw Exception('Gagal Update Profil');
     }
   }
 
@@ -126,6 +174,32 @@ class AuthService {
       return true;
     } else {
       return false;
+    }
+  }
+
+  Future<bool> logout(String token) async {
+    var url = Uri.parse('$baseUrl/logout');
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': token,
+    };
+
+    var response = await http.post(
+      url,
+      headers: headers,
+    );
+
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      final prefs = await SharedPreferences.getInstance();
+      prefs.remove('email');
+      prefs.remove('password');
+      prefs.remove('token');
+
+      return true;
+    } else {
+      throw Exception('Gagal Logout');
     }
   }
 
