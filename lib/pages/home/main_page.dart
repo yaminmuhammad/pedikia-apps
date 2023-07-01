@@ -74,23 +74,23 @@ class _MainPageState extends State<MainPage> {
                   ? primaryColor
                   : Color(0xffBDBDBD),
             ),
-            label: 'Cart',
+            label: 'Keranjang',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Image.asset(
-          //     'assets/icon_history.png',
-          //     width: 24,
-          //     color: pageProvider.currentIndex == 3
-          //         ? primaryColor
-          //         : Color(0xffBDBDBD),
-          //   ),
-          //   label: 'Riwayat',
-          // ),
+          BottomNavigationBarItem(
+            icon: Image.asset(
+              'assets/icon_history.png',
+              width: 24,
+              color: pageProvider.currentIndex == 3
+                  ? primaryColor
+                  : Color(0xffBDBDBD),
+            ),
+            label: 'Riwayat',
+          ),
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/icon_profile.png',
               width: 17,
-              color: pageProvider.currentIndex == 3
+              color: pageProvider.currentIndex == 4
                   ? primaryColor
                   : Color(0xffBDBDBD),
             ),
@@ -111,10 +111,10 @@ class _MainPageState extends State<MainPage> {
         case 2:
           return CartPage();
           break;
-        // case 3:
-        //   return HistoryPage();
-        //   break;
         case 3:
+          return HistoryPage();
+          break;
+        case 4:
           return ProfilePage();
           break;
         default:

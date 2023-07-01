@@ -118,8 +118,8 @@ class _HistoryPageState extends State<HistoryPage> {
       body: Column(
         children: [
           header(),
-          content(),
-          // wishlistProvider.wishlist.length == 0 ? emptyWishlist() : content(),
+          // content(),
+          orderProvider.orders.length == 0 ? emptyWishlist() : content(),
         ],
       ),
     );

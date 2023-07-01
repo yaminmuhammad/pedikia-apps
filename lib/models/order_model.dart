@@ -12,7 +12,7 @@ class OrderModel {
   String payment;
   DateTime createdAt;
   DateTime updatedAt;
-  List<OrderItemModel> items;
+  // List<OrderItemModel> items;
   // ItemModel item;
 
   OrderModel({
@@ -26,7 +26,7 @@ class OrderModel {
     this.payment,
     this.createdAt,
     this.updatedAt,
-    this.items,
+    // this.items,
   });
 
   OrderModel.fromJson(Map<String, dynamic> json) {
@@ -40,14 +40,14 @@ class OrderModel {
     payment = json['payment'];
     createdAt = DateTime.parse(json['created_at']);
     updatedAt = DateTime.parse(json['updated_at']);
-    if (json['items'] != null) {
-      items = json['items']
-          .map<OrderItemModel>(
-              (transactionItems) => OrderItemModel.fromJson(transactionItems))
-          .toList();
-    } else {
-      items = [];
-    }
+    // if (json['items'] != null) {
+    //   items = json['items']
+    //       .map<OrderItemModel>(
+    //           (transactionItems) => OrderItemModel.fromJson(transactionItems))
+    //       .toList();
+    // } else {
+    //   items = [];
+    // }
     // if (json['items'] != null) {
     //   items = List<OrderItemModel>.from(
     //       json['items'].map((item) => OrderItemModel.fromJson(item)));
@@ -66,8 +66,8 @@ class OrderModel {
       'payment': payment,
       'created_at': createdAt.toString(),
       'updated_at': updatedAt.toString(),
-      'items':
-          items.map((transactionItems) => transactionItems.toJson()).toList(),
+      // 'items':
+      //     items.map((transactionItems) => transactionItems.toJson()).toList(),
     };
   }
 }

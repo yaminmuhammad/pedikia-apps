@@ -22,6 +22,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
         Provider.of<TransactionProvider>(context);
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
+    TextEditingController addressController =
+        TextEditingController(text: authProvider.user.address);
+    TextEditingController cityController =
+        TextEditingController(text: authProvider.user.city);
+
     handleCheckout() async {
       setState(() {
         isLoading = true;
@@ -29,6 +34,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
       if (await transactionProvider.checkout(
         authProvider.user.token,
+        addressController.text,
+        cityController.text,
         cartProvider.carts,
         cartProvider.totalPrice(),
       )) {
@@ -91,89 +98,149 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ),
 
           // NOTE: ADDRESS DETAILS
+          // Container(
+          //   margin: EdgeInsets.only(
+          //     top: defaultMargin,
+          //   ),
+          //   padding: EdgeInsets.all(20),
+          //   decoration: BoxDecoration(
+          //     color: secondaryColor,
+          //     borderRadius: BorderRadius.circular(12),
+          //   ),
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       Text(
+          //         'Address Details',
+          //         style: primaryTextStyle.copyWith(
+          //           fontSize: 16,
+          //           fontWeight: medium,
+          //         ),
+          //       ),
+          //       SizedBox(
+          //         height: 12,
+          //       ),
+          //       Row(
+          //         children: [
+          //           Column(
+          //             children: [
+          //               Image.asset(
+          //                 'assets/icon_address.png',
+          //                 width: 40,
+          //               ),
+          //               Image.asset(
+          //                 'assets/icon_line.png',
+          //                 height: 30,
+          //                 color: Colors.black,
+          //               ),
+          //               Image.asset(
+          //                 'assets/icon_city.png',
+          //                 width: 40,
+          //               ),
+          //             ],
+          //           ),
+          //           SizedBox(
+          //             width: 12,
+          //           ),
+          //           Column(
+          //             crossAxisAlignment: CrossAxisAlignment.start,
+          //             children: [
+          //               Text(
+          //                 'Alamat',
+          //                 style: secondaryTextStyle.copyWith(
+          //                   fontSize: 12,
+          //                   color: Colors.black,
+          //                   fontWeight: light,
+          //                 ),
+          //               ),
+          //               TextFormField(
+          //                 decoration: InputDecoration(
+          //                   hintText: authProvider.user.address,
+          //                 ),
+          //                 controller: addressController,
+          //                 style: primaryTextStyle.copyWith(
+          //                   fontWeight: medium,
+          //                 ),
+          //               ),
+          //               SizedBox(
+          //                 height: defaultMargin,
+          //               ),
+          //               // Text(
+          //               //   'Kota',
+          //               //   style: secondaryTextStyle.copyWith(
+          //               //     fontSize: 12,
+          //               //     color: Colors.black,
+          //               //     fontWeight: light,
+          //               //   ),
+          //               // ),
+          //               // Text(
+          //               //   authProvider.user.city,
+          //               //   style: primaryTextStyle.copyWith(
+          //               //     fontWeight: medium,
+          //               //   ),
+          //               // ),
+          //             ],
+          //           ),
+          //         ],
+          //       ),
+          //     ],
+          //   ),
+          // ),
+
           Container(
-            margin: EdgeInsets.only(
-              top: defaultMargin,
-            ),
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: secondaryColor,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Address Details',
-                  style: primaryTextStyle.copyWith(
-                    fontSize: 16,
-                    fontWeight: medium,
-                  ),
+            child: SingleChildScrollView(
+              child: Container(
+                margin: EdgeInsets.only(
+                  top: defaultMargin,
                 ),
-                SizedBox(
-                  height: 12,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: secondaryColor,
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icon_address.png',
-                          width: 40,
-                        ),
-                        Image.asset(
-                          'assets/icon_line.png',
-                          height: 30,
-                          color: Colors.black,
-                        ),
-                        Image.asset(
-                          'assets/icon_city.png',
-                          width: 40,
-                        ),
-                      ],
+                    Text(
+                      'Alamat',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                        color: primaryColor,
+                        fontWeight: light,
+                      ),
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: authProvider.user.address,
+                      ),
+                      controller: addressController,
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
                     ),
                     SizedBox(
-                      width: 12,
+                      height: defaultMargin,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Alamat',
-                          style: secondaryTextStyle.copyWith(
-                            fontSize: 12,
-                            color: Colors.black,
-                            fontWeight: light,
-                          ),
-                        ),
-                        Text(
-                          'Adidas Core',
-                          style: primaryTextStyle.copyWith(
-                            fontWeight: medium,
-                          ),
-                        ),
-                        SizedBox(
-                          height: defaultMargin,
-                        ),
-                        Text(
-                          'Kota',
-                          style: secondaryTextStyle.copyWith(
-                            fontSize: 12,
-                            color: Colors.black,
-                            fontWeight: light,
-                          ),
-                        ),
-                        Text(
-                          'Marsemoon',
-                          style: primaryTextStyle.copyWith(
-                            fontWeight: medium,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      'Kota',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                        color: Colors.black,
+                        fontWeight: light,
+                      ),
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: authProvider.user.city,
+                      ),
+                      controller: cityController,
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
           ),
 

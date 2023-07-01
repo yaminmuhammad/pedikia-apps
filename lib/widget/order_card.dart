@@ -26,13 +26,13 @@ class OrderCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        // color: secondaryColor,
+        color: secondaryColor,
       ),
       child: Row(
         children: [
           Text(
             // trSuccess.therapist.name,
-            order.address,
+            order.createdAt.toLocal().toString(),
             style: primaryTextStyle.copyWith(
               fontWeight: semiBold,
             ),

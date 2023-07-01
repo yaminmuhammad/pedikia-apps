@@ -32,15 +32,15 @@ class OrderService {
       // print(response.body);
       if (data != null) {
         for (var item in data) {
-          print(item);
-          print(data);
+          // print(item);
+          // print(data);
           orders.add(OrderModel.fromJson(item));
         }
       }
 
       // return orders;
       // print(response.body);
-      print(orders);
+      // print(orders);
       return orders;
     } else {
       throw Exception('Gagal Get Data Transaction ');
