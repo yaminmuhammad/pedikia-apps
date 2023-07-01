@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pedikia/models/user_model.dart';
 import 'package:pedikia/providers/auth_provider.dart';
+import 'package:pedikia/providers/order_provider.dart';
 import 'package:pedikia/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../widget/loading_button.dart';
 
@@ -26,15 +28,18 @@ class _ProfilePageState extends State<ProfilePage> {
       });
 
       if (await authProvider.logout(user.token)) {
+        // ignore: use_build_context_synchronously
         Navigator.pushNamedAndRemoveUntil(
             context, '/sign-in', (route) => false);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             backgroundColor: Colors.green,
-            content: const Text(
+            content: Text(
               'Logout Berhasil!',
               textAlign: TextAlign.center,
             )));
       } else {
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: alertColor,
             content: const Text(
@@ -314,8 +319,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   'Edit Profile',
                 ),
               ),
-              menuItem(
-                'Help',
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/history');
+                },
+                child: menuItem(
+                  'Your Order',
+                ),
               ),
               SizedBox(
                 height: 30,
@@ -332,9 +342,6 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               menuItem(
                 'Term of Service',
-              ),
-              menuItem(
-                'Rate App',
               ),
               SizedBox(
                 height: 30,

@@ -1,53 +1,49 @@
-// import 'package:flutter/material.dart';
-// import 'package:lottie/lottie.dart';
-// import 'package:pedikia/theme.dart';
-
-// class HistoryPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SafeArea(
-//         child: Center(
-//           child: ListView(
-//             children: [
-//               // Load a Lottie file from your assets
-//               Container(
-//                 margin: EdgeInsets.only(top: 130),
-//                 child: Lottie.asset('assets/not_found.json',
-//                     alignment: Alignment.bottomCenter),
-//               ),
-//               Center(
-//                 child: Container(
-//                   margin: EdgeInsets.all(30),
-//                   child: Text(
-//                     'Tidak ada Riwayat',
-//                     style: primaryTextStyle.copyWith(
-//                       fontSize: 20,
-//                       fontWeight: bold,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pedikia/providers/order_provider.dart';
 import 'package:pedikia/theme.dart';
-import 'package:pedikia/widget/wishlist_card.dart';
-import 'package:pedikia/providers/page_provider.dart';
+import 'package:pedikia/widget/order_card.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class HistoryPage extends StatelessWidget {
+class HistoryPage extends StatefulWidget {
+  @override
+  State<HistoryPage> createState() => _HistoryPageState();
+}
+
+class _HistoryPageState extends State<HistoryPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    getsInit();
+    super.initState();
+  }
+
+  getsInit() async {
+    sendSession();
+  }
+
+  Future sendSession() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    // final email = sharedPreferences.getString('email');
+    // final password = sharedPreferences.getString('password');
+    final token = sharedPreferences.getString('token');
+
+    // await Provider.of<AuthProvider>(context, listen: false).login(
+    //   email: email,
+    //   password: password,
+    // );
+    await Provider.of<OrderProvider>(context, listen: false)
+        .getTransactionSuccess();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    // UserModel user = authProvider.user;
+    OrderProvider orderProvider = Provider.of<OrderProvider>(context);
     // WishlistProvider wishlistProvider = Provider.of<WishlistProvider>(context);
-    PageProvider pageProvider = Provider.of<PageProvider>(context);
+    // PageProvider pageProvider = Provider.of<PageProvider>(context);
 
     Widget header() {
       return AppBar(
@@ -61,6 +57,23 @@ class HistoryPage extends StatelessWidget {
             fontSize: 20,
             color: whiteColor,
             fontWeight: semiBold,
+          ),
+        ),
+      );
+    }
+
+    Widget content() {
+      return Expanded(
+        child: Container(
+          child: ListView(
+            padding: EdgeInsets.symmetric(
+              horizontal: defaultMargin,
+            ),
+            children: orderProvider.orders
+                .map(
+                  (order) => OrderCard(order),
+                )
+                .toList(),
           ),
         ),
       );
@@ -101,29 +114,12 @@ class HistoryPage extends StatelessWidget {
       );
     }
 
-    // Widget content() {
-    //   return Expanded(
-    //     child: Container(
-    //       child: ListView(
-    //         padding: EdgeInsets.symmetric(
-    //           horizontal: defaultMargin,
-    //         ),
-    //         children: wishlistProvider.wishlist
-    //             .map(
-    //               (service) => WishlistCard(service),
-    //             )
-    //             .toList(),
-    //       ),
-    //     ),
-    //   );
-    // }
-
     return Scaffold(
       body: Column(
         children: [
           header(),
-          emptyWishlist()
-          // wishlistProvider.wishlist.length == 0 ? emptyWishlist() : content(),
+          // content(),
+          orderProvider.orders.length == 0 ? emptyWishlist() : content(),
         ],
       ),
     );

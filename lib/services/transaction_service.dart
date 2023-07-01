@@ -8,6 +8,8 @@ class TransactionService {
 
   Future<bool> checkout(
     String token,
+    String address,
+    String city,
     List<CartModel> carts,
     double totalPrice,
   ) async {
@@ -18,7 +20,7 @@ class TransactionService {
     };
     var body = jsonEncode(
       {
-        "address": "Lemahabang",
+        "address": '$address, $city',
         "items": carts
             .map(
               (cart) => {

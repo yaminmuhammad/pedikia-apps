@@ -74,7 +74,7 @@ class _MainPageState extends State<MainPage> {
                   ? primaryColor
                   : Color(0xffBDBDBD),
             ),
-            label: 'Cart',
+            label: 'Keranjang',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
