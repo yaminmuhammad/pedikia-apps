@@ -138,7 +138,7 @@ class CartPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Lanjutkan Pembayaran',
+                      'Lanjutkan Pemesanan',
                       style: primaryTextStyle.copyWith(
                         fontSize: 16,
                         color: whiteColor,

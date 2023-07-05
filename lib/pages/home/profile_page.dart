@@ -121,7 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     height: 12,
                   ),
                   Text(
-                    'Are You Sure To Logout?',
+                    'Anda Yakin Untuk Logout?',
                     style: primaryTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: semiBold,
@@ -328,23 +328,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               SizedBox(
-                height: 30,
-              ),
-              Text(
-                'General',
-                style: primaryTextStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: semiBold,
-                ),
-              ),
-              menuItem(
-                'Privacy & Policy',
-              ),
-              menuItem(
-                'Term of Service',
-              ),
-              SizedBox(
-                height: 30,
+                height: 180,
               ),
               SignOutButton(),
             ],

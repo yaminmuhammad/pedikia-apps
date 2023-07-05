@@ -171,7 +171,7 @@ class OrderCard extends StatelessWidget {
 Color _getStatusColor(String status) {
   switch (status) {
     case "PENDING":
-      return Color.fromARGB(255, 219, 219, 4);
+      return Color.fromARGB(255, 8, 141, 202);
     case "SUCCESS":
       return Color.fromARGB(255, 36, 180, 41);
     case "CANCELLED":

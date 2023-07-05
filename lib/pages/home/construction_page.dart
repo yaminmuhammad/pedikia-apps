@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:pedikia/pages/home/home_page.dart';
 import 'package:pedikia/theme.dart';
 
 class ConstructionsPage extends StatelessWidget {

@@ -31,8 +31,8 @@ class OrderModel {
 
   OrderModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    therapistId = json['therapist_id'];
-    userId = json['user_id'];
+    therapistId = json['therapist'];
+    userId = json['user'];
     address = json['address'];
     totalPrice = double.parse(json['total_price'].toString());
     extraPrice = double.parse(json['extra_price'].toString());
@@ -40,18 +40,6 @@ class OrderModel {
     payment = json['payment'];
     createdAt = DateTime.parse(json['created_at']);
     updatedAt = DateTime.parse(json['updated_at']);
-    // if (json['items'] != null) {
-    //   items = json['items']
-    //       .map<OrderItemModel>(
-    //           (transactionItems) => OrderItemModel.fromJson(transactionItems))
-    //       .toList();
-    // } else {
-    //   items = [];
-    // }
-    // if (json['items'] != null) {
-    //   items = List<OrderItemModel>.from(
-    //       json['items'].map((item) => OrderItemModel.fromJson(item)));
-    // }
   }
 
   Map<String, dynamic> toJson() {
@@ -66,8 +54,6 @@ class OrderModel {
       'payment': payment,
       'created_at': createdAt.toString(),
       'updated_at': updatedAt.toString(),
-      // 'items':
-      //     items.map((transactionItems) => transactionItems.toJson()).toList(),
     };
   }
 }

@@ -225,7 +225,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       'Kota',
                       style: secondaryTextStyle.copyWith(
                         fontSize: 12,
-                        color: Colors.black,
+                        color: primaryColor,
                         fontWeight: light,
                       ),
                     ),
@@ -322,6 +322,27 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     ),
                     Text(
                       'Gratis',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Pembayaran',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      'Manual',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),

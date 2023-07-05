@@ -230,78 +230,9 @@ class _SignInPageState extends State<SignInPage> {
                           SizedBox(
                             height: 10,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Checkbox(
-                                        checkColor: Colors.white,
-                                        activeColor: primaryColor,
-                                        value: isChecked,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            isChecked = value;
-                                          });
-                                        },
-                                      ),
-                                      Text("Ingat saya"),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                "Lupa kata sandi?",
-                                style: TextStyle(
-                                  color: primaryColor,
-                                ),
-                              ),
-                            ],
-                          ),
                           isLoading ? LoadingButton() : SignInButton(),
                           SizedBox(
                             height: 10,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: Container(
-                                  margin: const EdgeInsets.only(right: 20.0),
-                                  child: Divider(),
-                                ),
-                              ),
-                              Text(
-                                "Atau masuk dengan",
-                                style: TextStyle(fontSize: 16),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  margin: const EdgeInsets.only(left: 20.0),
-                                  child: Divider(),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/google.png",
-                                width: 30,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Image.asset(
-                                "assets/facebook.png",
-                                width: 30,
-                              ),
-                            ],
                           ),
                           SizedBox(
                             height: 10,

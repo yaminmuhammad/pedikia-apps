@@ -34,7 +34,7 @@ class EditProfilePage extends StatelessWidget {
           SnackBar(
             backgroundColor: Colors.green,
             content: const Text(
-              'Berhasil Update Profile!',
+              'Profile Berhasil Diperbarui',
               textAlign: TextAlign.center,
             ),
           ),
