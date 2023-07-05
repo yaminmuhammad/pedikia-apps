@@ -480,20 +480,11 @@ class _SignUpPageState extends State<SignUpPage> {
                             children: <Widget>[
                               Expanded(
                                 child: Container(
-                                  margin: const EdgeInsets.only(right: 20.0),
-                                  child: Divider(
-                                    color: Colors.black54,
-                                    thickness: 1,
+                                  margin: const EdgeInsets.only(
+                                    right: 20.0,
+                                    top: 10.0,
+                                    left: 20.0,
                                   ),
-                                ),
-                              ),
-                              Text(
-                                "Atau daftar melalui",
-                                style: TextStyle(fontSize: 16),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  margin: const EdgeInsets.only(left: 20.0),
                                   child: Divider(
                                     color: Colors.black54,
                                     thickness: 1,
@@ -501,28 +492,6 @@ class _SignUpPageState extends State<SignUpPage> {
                                 ),
                               ),
                             ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/google.png",
-                                width: 30,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Image.asset(
-                                "assets/facebook.png",
-                                width: 30,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

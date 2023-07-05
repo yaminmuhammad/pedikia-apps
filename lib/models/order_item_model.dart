@@ -1,6 +1,4 @@
-import 'package:pedikia/models/order_model.dart';
 import 'package:pedikia/models/service_model.dart';
-import 'package:pedikia/models/user_model.dart';
 
 class OrderItemModel {
   int id;

@@ -65,7 +65,7 @@ class CheckoutSuccessPage extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'Kembali ke Home',
+                  'Kembali ke Cart',
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
                     color: whiteColor,

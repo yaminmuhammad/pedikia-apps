@@ -79,7 +79,7 @@ class _HistoryPageState extends State<HistoryPage> {
       );
     }
 
-    Widget emptyWishlist() {
+    Widget emptyHistory() {
       return Expanded(
         child: Container(
           width: double.infinity,
@@ -119,7 +119,7 @@ class _HistoryPageState extends State<HistoryPage> {
         children: [
           header(),
           // content(),
-          orderProvider.orders.length == 0 ? emptyWishlist() : content(),
+          orderProvider.orders.length == 0 ? emptyHistory() : content(),
         ],
       ),
     );
