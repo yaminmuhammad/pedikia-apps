@@ -8,9 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashPage extends StatefulWidget {
   final AuthService authService;
-  Widget nextPage;
+  Widget? nextPage;
 
-  SplashPage({this.authService, Key key}) : super(key: key);
+  SplashPage({required this.authService, Key? key}) : super(key: key);
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -50,7 +50,7 @@ class _SplashPageState extends State<SplashPage> {
     if (token != null) {
       // ignore: use_build_context_synchronously
       await Provider.of<AuthProvider>(context, listen: false)
-          .login(email: email, password: password);
+          .login(email: email!, password: password!);
 
       // ignore: use_build_context_synchronously
       Navigator.pushNamed(context, '/home');

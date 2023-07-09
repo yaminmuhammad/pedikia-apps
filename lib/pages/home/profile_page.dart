@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
         isLoading = true;
       });
 
-      if (await authProvider.logout(user.token)) {
+      if (await authProvider.logout(user.token!)) {
         // ignore: use_build_context_synchronously
         Navigator.pushNamedAndRemoveUntil(
             context, '/sign-in', (route) => false);

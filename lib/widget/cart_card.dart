@@ -35,7 +35,7 @@ class CartCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
                     image: NetworkImage(
-                      cart.service.galleries[0].url,
+                      cart.service.galleries![0].url,
                     ),
                   ),
                 ),
@@ -48,14 +48,14 @@ class CartCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      cart.service.name,
+                      cart.service.name!,
                       style: primaryTextStyle.copyWith(
                         fontWeight: semiBold,
                       ),
                     ),
                     Text(
                       // '\$${cart.service.price}',
-                      'Rp ${cart.service.price.toStringAsFixed(0).replaceAll('.', ',')}',
+                      'Rp ${cart.service.price!.toStringAsFixed(0).replaceAll('.', ',')}',
                       style: priceTextStyle,
                     ),
                   ],

@@ -1,24 +1,24 @@
 import 'package:pedikia/models/service_model.dart';
 
 class OrderItemModel {
-  int id;
-  int userId;
-  int serviceId;
-  int transactionsId;
-  int quantity;
-  DateTime createdAt;
-  DateTime updatedAt;
-  ServiceModel service;
+  late int id;
+  late int userId;
+  late int serviceId;
+  late int transactionsId;
+  late int quantity;
+  late DateTime createdAt;
+  late DateTime updatedAt;
+  late ServiceModel service;
 
   OrderItemModel({
-    this.id,
-    this.userId,
-    this.serviceId,
-    this.transactionsId,
-    this.quantity,
-    this.createdAt,
-    this.updatedAt,
-    this.service,
+    required this.id,
+    required this.userId,
+    required this.serviceId,
+    required this.transactionsId,
+    required this.quantity,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.service,
   });
 
   OrderItemModel.fromJson(Map<String, dynamic> json) {
@@ -41,7 +41,7 @@ class OrderItemModel {
       'quantity': quantity,
       'created_at': createdAt.toString(),
       'updated_at': updatedAt.toString(),
-      'service': service?.toJson(),
+      'service': service.toJson(),
     };
   }
 }

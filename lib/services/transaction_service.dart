@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:pedikia/models/cart_model.dart';
 
 class TransactionService {
-  // String baseUrl = "https://testing.tanpabatasgroup.com/api";
-  String baseUrl = "http://10.0.2.2:8000/api";
+  String baseUrl = "https://testing.tanpabatasgroup.com/public/api";
+  // String baseUrl = "http://10.0.2.2:8000/api";
 
   Future<bool> checkout(
     String token,
@@ -36,7 +36,7 @@ class TransactionService {
     );
 
     var response = await http.post(
-      url,
+      Uri.parse(url),
       headers: headers,
       body: body,
     );

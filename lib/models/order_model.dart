@@ -2,37 +2,39 @@ import 'package:pedikia/models/order_item_model.dart';
 import 'package:pedikia/models/user_model.dart';
 
 class OrderModel {
-  int id;
-  int therapistId;
-  int userId;
-  String address;
-  double totalPrice;
-  double extraPrice;
-  String status;
-  String payment;
-  DateTime createdAt;
-  DateTime updatedAt;
+  late int id;
+  late int therapistId;
+  late int userId;
+  late String address;
+  late double totalPrice;
+  late double extraPrice;
+  late String status;
+  late String payment;
+  late DateTime createdAt;
+  late DateTime updatedAt;
   // List<OrderItemModel> items;
   // ItemModel item;
 
   OrderModel({
-    this.id,
-    this.therapistId,
-    this.userId,
-    this.address,
-    this.totalPrice,
-    this.extraPrice,
-    this.status,
-    this.payment,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.therapistId,
+    required this.userId,
+    required this.address,
+    required this.totalPrice,
+    required this.extraPrice,
+    required this.status,
+    required this.payment,
+    required this.createdAt,
+    required this.updatedAt,
     // this.items,
   });
 
   OrderModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    therapistId = json['therapist'];
-    userId = json['user'];
+    // therapistId = json['therapist_id'];
+    therapistId = int.parse(json['therapist_id'].toString());
+    // userId = json['user_id'];
+    userId = int.parse(json['user_id'].toString());
     address = json['address'];
     totalPrice = double.parse(json['total_price'].toString());
     extraPrice = double.parse(json['extra_price'].toString());

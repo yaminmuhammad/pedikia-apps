@@ -33,7 +33,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
       });
 
       if (await transactionProvider.checkout(
-        authProvider.user.token,
+        authProvider.user.token!,
         addressController.text,
         cityController.text,
         cartProvider.carts,
@@ -49,7 +49,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
       });
     }
 
-    Widget header() {
+    header() {
       return AppBar(
         backgroundColor: primaryColor,
         elevation: 0,

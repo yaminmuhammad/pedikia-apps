@@ -98,7 +98,7 @@ class _DetailServicePageState extends State<DetailServicePage> {
           pauseAutoPlayOnTouch: true,
         ),
         items: widget.service.galleries
-            .map(
+            ?.map(
               (image) => CachedNetworkImage(
                 imageUrl: image.url,
                 width: MediaQuery.of(context).size.width,
@@ -146,7 +146,7 @@ class _DetailServicePageState extends State<DetailServicePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.service.name,
+                      widget.service.name!,
                       style: primaryTextStyle.copyWith(
                         fontSize: 22.0,
                         color: Colors.black,
@@ -157,7 +157,7 @@ class _DetailServicePageState extends State<DetailServicePage> {
                       height: 10,
                     ),
                     Text(
-                      'Rp ${widget.service.price.toStringAsFixed(0).replaceAll('.', ',')}',
+                      'Rp ${widget.service.price!.toStringAsFixed(0).replaceAll('.', ',')}',
                       style: primaryTextStyle.copyWith(
                         fontSize: 15,
                         color: priceColor,
@@ -219,7 +219,7 @@ class _DetailServicePageState extends State<DetailServicePage> {
             Container(
               alignment: Alignment.centerLeft,
               child: Text(
-                widget.service.description,
+                widget.service.description!,
                 style: primaryTextStyle.copyWith(
                   fontSize: 13,
                   fontWeight: medium,

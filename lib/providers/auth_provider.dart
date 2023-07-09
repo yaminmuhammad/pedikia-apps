@@ -3,7 +3,7 @@ import 'package:pedikia/models/user_model.dart';
 import 'package:pedikia/services/auth_service.dart';
 
 class AuthProvider with ChangeNotifier {
-  UserModel _user;
+  late UserModel _user;
 
   UserModel get user => _user;
 
@@ -13,13 +13,13 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<bool> register({
-    String name,
-    String phone,
-    String address,
-    String city,
-    String roles,
-    String email,
-    String password,
+    required String name,
+    required String phone,
+    required String address,
+    required String city,
+    required String roles,
+    required String email,
+    required String password,
   }) async {
     try {
       UserModel user = await AuthService().register(
@@ -41,8 +41,8 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<bool> login({
-    String email,
-    String password,
+    required String email,
+    required String password,
   }) async {
     try {
       UserModel user = await AuthService().login(
@@ -59,12 +59,12 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<bool> editProfile({
-    String name,
-    String phone,
-    String address,
-    String city,
-    String email,
-    String token,
+    required String name,
+    required String phone,
+    required String address,
+    required String city,
+    required String email,
+    required String token,
   }) async {
     try {
       UserModel user = await AuthService().editProfile(

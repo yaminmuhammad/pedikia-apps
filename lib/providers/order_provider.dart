@@ -11,16 +11,14 @@ class OrderProvider with ChangeNotifier {
   }
 
   Future<void> getTransactionSuccess(
-      // String token,
-      ) async {
+    String token,
+  ) async {
     try {
       List<OrderModel> orders = await OrderService().getOrder(
-          // token,
-          );
-      if (orders != null) {
-        _orders = orders;
-        notifyListeners();
-      }
+        token,
+      );
+      _orders = orders;
+      notifyListeners();
     } catch (e) {
       print(e);
       print('error connection! / transaction provider');

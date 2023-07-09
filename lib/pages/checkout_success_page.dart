@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 class CheckoutSuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget header() {
+    header() {
       return AppBar(
         backgroundColor: primaryColor,
         centerTitle: true,

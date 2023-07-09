@@ -178,9 +178,9 @@ class _HomePageState extends State<HomePage> {
 
 class itemKategori extends StatelessWidget {
   const itemKategori({
-    Key key,
-    this.title,
-    this.icon,
+    required Key key,
+    required this.title,
+    required this.icon,
   }) : super(key: key);
 
   final String title;

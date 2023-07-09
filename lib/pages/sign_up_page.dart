@@ -5,7 +5,7 @@ import 'package:pedikia/widget/loading_button.dart';
 import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key key}) : super(key: key);
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -273,9 +273,9 @@ class _SignUpPageState extends State<SignUpPage> {
               fontSize: 16,
               fontWeight: medium,
             ),
-            onChanged: (String newValue) {
+            onChanged: (newValue) {
               setState(() {
-                dropdownValue = newValue;
+                dropdownValue = newValue!;
                 myController.text = dropdownValue;
               });
             },
@@ -351,7 +351,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   style: subtitleTextStyle,
                   obscureText: _isObscured,
                   validator: (value) {
-                    if (value.length < 10) {
+                    if (value!.length < 10) {
                       return 'Kata sandi harus memiliki minimal 10 karakter';
                     }
                     return null;

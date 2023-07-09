@@ -31,7 +31,7 @@ class ServiceTile extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: CachedNetworkImage(
-                imageUrl: service.galleries[0].url,
+                imageUrl: service.galleries![0].url,
                 width: 120,
                 height: 120,
                 fit: BoxFit.cover,
@@ -66,7 +66,7 @@ class ServiceTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    service.category.name,
+                    service.category!.name,
                     style: subtitleTextStyle.copyWith(
                       fontSize: 12,
                     ),
@@ -75,7 +75,7 @@ class ServiceTile extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    service.name,
+                    service.name!,
                     style: primaryTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,
@@ -107,7 +107,7 @@ class ServiceTile extends StatelessWidget {
                               width: 12,
                             ),
                             Text(
-                              '   Rp ${service.price.toStringAsFixed(0).replaceAll('.', ',')}',
+                              '   Rp ${service.price!.toStringAsFixed(0).replaceAll('.', ',')}',
                               style: primaryTextStyle.copyWith(
                                   fontSize: 10, color: whiteColor),
                             ),
