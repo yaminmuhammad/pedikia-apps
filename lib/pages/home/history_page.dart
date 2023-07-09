@@ -34,7 +34,7 @@ class _HistoryPageState extends State<HistoryPage> {
     //   password: password,
     // );
     await Provider.of<OrderProvider>(context, listen: false)
-        .getTransactionSuccess();
+        .getTransactionSuccess(token!);
   }
 
   @override

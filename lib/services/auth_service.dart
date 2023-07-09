@@ -4,17 +4,17 @@ import 'package:pedikia/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
-  // String baseUrl = "https://testing.tanpabatasgroup.com/api";
-  String baseUrl = "http://10.0.2.2:8000/api";
+  String baseUrl = "https://testing.tanpabatasgroup.com/public/api";
+  // String baseUrl = "http://10.0.2.2:8000/api";
 
   Future<UserModel> register({
-    String name,
-    String phone,
-    String address,
-    String city,
-    String roles,
-    String email,
-    String password,
+    required name,
+    required phone,
+    required address,
+    required city,
+    required roles,
+    required email,
+    required password,
   }) async {
     var url = '$baseUrl/register';
 
@@ -30,7 +30,7 @@ class AuthService {
     });
 
     var response = await http.post(
-      url,
+      Uri.parse(url),
       headers: headers,
       body: body,
     );
@@ -54,8 +54,8 @@ class AuthService {
   }
 
   Future<UserModel> login({
-    String email,
-    String password,
+    required email,
+    required password,
   }) async {
     var url = '$baseUrl/login';
 
@@ -66,7 +66,7 @@ class AuthService {
     });
 
     var response = await http.post(
-      url,
+      Uri.parse(url),
       headers: headers,
       body: body,
     );
@@ -90,12 +90,12 @@ class AuthService {
   }
 
   Future<UserModel> editProfile({
-    String name,
-    String phone,
-    String address,
-    String city,
-    String email,
-    String token,
+    required String name,
+    required String phone,
+    required String address,
+    required String city,
+    required String email,
+    required String token,
   }) async {
     var url = '$baseUrl/user';
 
@@ -137,14 +137,14 @@ class AuthService {
     return prefs.containsKey("token");
   }
 
-  Future<UserModel> getUser() async {
+  Future<UserModel?> getUser() async {
     var prefs = await SharedPreferences.getInstance();
     if (prefs.containsKey("token")) {
       var token = prefs.getString("token");
       var response = await http.get(
         Uri.parse("$baseUrl/profile"),
         headers: {
-          "Authorization": token,
+          "Authorization": token!,
         },
       );
       if (response.statusCode == 200) {

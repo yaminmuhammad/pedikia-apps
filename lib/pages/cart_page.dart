@@ -9,7 +9,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     CartProvider cartProvider = Provider.of<CartProvider>(context);
 
-    Widget header() {
+    header() {
       return AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: primaryColor,

@@ -1,14 +1,14 @@
 import 'package:pedikia/models/service_model.dart';
 
 class CartModel {
-  int id;
-  ServiceModel service;
-  int quantity;
+  late int id;
+  late ServiceModel service;
+  late int quantity;
 
   CartModel({
-    this.id,
-    this.service,
-    this.quantity,
+    required this.id,
+    required this.service,
+    required this.quantity,
   });
 
   CartModel.fromJson(Map<String, dynamic> json) {
@@ -26,6 +26,6 @@ class CartModel {
   }
 
   double getTotalPrice() {
-    return service.price * quantity;
+    return service.price! * quantity;
   }
 }

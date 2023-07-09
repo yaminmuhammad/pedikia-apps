@@ -27,7 +27,7 @@ class CheckoutCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               image: DecorationImage(
                 image: NetworkImage(
-                  cart.service.galleries[0].url,
+                  cart.service.galleries![0].url,
                 ),
               ),
             ),
@@ -40,7 +40,7 @@ class CheckoutCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  cart.service.name,
+                  cart.service.name!,
                   style: primaryTextStyle.copyWith(
                     fontWeight: semiBold,
                   ),
@@ -50,7 +50,7 @@ class CheckoutCard extends StatelessWidget {
                   height: 2,
                 ),
                 Text(
-                  'Rp ${cart.service.price.toStringAsFixed(0).replaceAll('.', ',')}',
+                  'Rp ${cart.service.price!.toStringAsFixed(0).replaceAll('.', ',')}',
                   style: priceTextStyle,
                 ),
               ],

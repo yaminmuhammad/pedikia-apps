@@ -1,10 +1,10 @@
 class GalleryModel {
-  int id;
-  String url;
+  late int id;
+  late String url;
 
   GalleryModel({
-    this.id,
-    this.url,
+    required this.id,
+    required this.url,
   });
 
   GalleryModel.fromJson(Map<String, dynamic> json) {

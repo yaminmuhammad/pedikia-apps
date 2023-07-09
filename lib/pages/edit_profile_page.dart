@@ -28,7 +28,7 @@ class EditProfilePage extends StatelessWidget {
         address: addressController.text,
         city: cityController.text,
         email: emailController.text,
-        token: authProvider.user.token,
+        token: authProvider.user.token!,
       )) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -53,7 +53,7 @@ class EditProfilePage extends StatelessWidget {
       }
     }
 
-    Widget header() {
+    header() {
       return AppBar(
         leading: IconButton(
           icon: Icon(Icons.close),

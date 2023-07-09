@@ -11,6 +11,7 @@ import 'package:pedikia/providers/auth_provider.dart';
 import 'package:pedikia/providers/transaction_provider.dart';
 import 'package:pedikia/providers/order_provider.dart';
 import 'package:pedikia/providers/wishlist_provider.dart';
+import 'package:pedikia/services/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'package:pedikia/providers/serve_provider.dart';
 import 'package:pedikia/providers/page_provider.dart';
@@ -51,7 +52,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => SplashPage(),
+          '/': (context) => SplashPage(
+                authService: AuthService(),
+              ),
           '/sign-in': (context) => SignInPage(),
           '/sign-up': (context) => SignUpPage(),
           '/home': (context) => MainPage(),
