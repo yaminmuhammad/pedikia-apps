@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/theme.dart';
 
 class ConstructionsPage extends StatelessWidget {
   @override

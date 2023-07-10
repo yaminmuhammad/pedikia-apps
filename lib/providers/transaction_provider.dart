@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/cart_model.dart';
-import 'package:pedikia/services/transaction_service.dart';
+import 'package:pedikia_id/models/cart_model.dart';
+import 'package:pedikia_id/services/transaction_service.dart';
 
 class TransactionProvider with ChangeNotifier {
   Future<bool> checkout(String token, String address, String city,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/cart_model.dart';
-import 'package:pedikia/models/service_model.dart';
+import 'package:pedikia_id/models/cart_model.dart';
+import 'package:pedikia_id/models/service_model.dart';
 
 class CartProvider with ChangeNotifier {
   List<CartModel> _carts = [];

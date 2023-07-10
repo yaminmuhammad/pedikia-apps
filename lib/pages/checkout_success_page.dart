@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/theme.dart';
 import 'package:lottie/lottie.dart';
 
 class CheckoutSuccessPage extends StatelessWidget {

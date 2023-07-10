@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:pedikia/providers/auth_provider.dart';
-import 'package:pedikia/providers/serve_provider.dart';
-import 'package:pedikia/services/auth_service.dart';
+import 'package:pedikia_id/providers/auth_provider.dart';
+import 'package:pedikia_id/providers/serve_provider.dart';
+import 'package:pedikia_id/services/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

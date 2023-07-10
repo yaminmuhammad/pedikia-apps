@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pedikia/models/order_model.dart';
-import 'package:pedikia/providers/order_provider.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/models/order_model.dart';
+import 'package:pedikia_id/providers/order_provider.dart';
+import 'package:pedikia_id/theme.dart';
 import 'package:provider/provider.dart';
 
 class OrderCard extends StatelessWidget {

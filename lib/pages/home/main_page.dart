@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/pages/home/history_page.dart';
-import 'package:pedikia/pages/home/home_page.dart';
-import 'package:pedikia/pages/home/profile_page.dart';
-import 'package:pedikia/pages/home/wishlist_page.dart';
-import 'package:pedikia/providers/page_provider.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/pages/home/history_page.dart';
+import 'package:pedikia_id/pages/home/home_page.dart';
+import 'package:pedikia_id/pages/home/profile_page.dart';
+import 'package:pedikia_id/pages/home/wishlist_page.dart';
+import 'package:pedikia_id/providers/page_provider.dart';
+import 'package:pedikia_id/theme.dart';
 import 'package:provider/provider.dart';
-import 'package:pedikia/pages/cart_page.dart';
+import 'package:pedikia_id/pages/cart_page.dart';
 
 class MainPage extends StatefulWidget {
   @override

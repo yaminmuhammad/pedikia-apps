@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/providers/cart_provider.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/providers/cart_provider.dart';
+import 'package:pedikia_id/theme.dart';
 import 'package:provider/provider.dart';
-import 'package:pedikia/widget/cart_card.dart';
+import 'package:pedikia_id/widget/cart_card.dart';
 
 class CartPage extends StatelessWidget {
   @override

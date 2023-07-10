@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/theme.dart';
 
 class HelpPage extends StatefulWidget {
   @override

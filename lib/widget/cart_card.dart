@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/cart_model.dart';
-import 'package:pedikia/providers/cart_provider.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/models/cart_model.dart';
+import 'package:pedikia_id/providers/cart_provider.dart';
+import 'package:pedikia_id/theme.dart';
 import 'package:provider/provider.dart';
 
 class CartCard extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:pedikia/models/service_model.dart';
+import 'package:pedikia_id/models/service_model.dart';
 
 class CartModel {
   late int id;

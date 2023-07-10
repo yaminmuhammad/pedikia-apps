@@ -1,5 +1,5 @@
-import 'package:pedikia/models/order_item_model.dart';
-import 'package:pedikia/models/user_model.dart';
+import 'package:pedikia_id/models/order_item_model.dart';
+import 'package:pedikia_id/models/user_model.dart';
 
 class OrderModel {
   late int id;

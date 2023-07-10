@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pedikia/models/cart_model.dart';
+import 'package:pedikia_id/models/cart_model.dart';
 
 class TransactionService {
   String baseUrl = "https://testing.tanpabatasgroup.com/public/api";
