@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:pedikia/providers/page_provider.dart';
-import 'package:pedikia/providers/wishlist_provider.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/providers/page_provider.dart';
+import 'package:pedikia_id/providers/wishlist_provider.dart';
+import 'package:pedikia_id/theme.dart';
 import 'package:provider/provider.dart';
-import 'package:pedikia/widget/wishlist_card.dart';
-import 'package:pedikia/providers/serve_provider.dart';
+import 'package:pedikia_id/widget/wishlist_card.dart';
+import 'package:pedikia_id/providers/serve_provider.dart';
 
 class WishlistPage extends StatelessWidget {
   @override

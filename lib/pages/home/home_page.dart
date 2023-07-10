@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/user_model.dart';
-import 'package:pedikia/providers/auth_provider.dart';
-import 'package:pedikia/providers/serve_provider.dart';
-import 'package:pedikia/theme.dart';
-import 'package:pedikia/widget/service_tile.dart';
+import 'package:pedikia_id/models/user_model.dart';
+import 'package:pedikia_id/providers/auth_provider.dart';
+import 'package:pedikia_id/providers/serve_provider.dart';
+import 'package:pedikia_id/theme.dart';
+import 'package:pedikia_id/widget/service_tile.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {

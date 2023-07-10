@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:pedikia/providers/auth_provider.dart';
-import 'package:pedikia/theme.dart';
-import 'package:pedikia/widget/loading_button.dart';
+import 'package:pedikia_id/providers/auth_provider.dart';
+import 'package:pedikia_id/theme.dart';
+import 'package:pedikia_id/widget/loading_button.dart';
 import 'package:provider/provider.dart';
 
 class SignInPage extends StatefulWidget {

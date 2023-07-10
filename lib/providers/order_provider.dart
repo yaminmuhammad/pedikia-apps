@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/order_model.dart';
-import 'package:pedikia/services/order_service.dart';
+import 'package:pedikia_id/models/order_model.dart';
+import 'package:pedikia_id/services/order_service.dart';
 
 class OrderProvider with ChangeNotifier {
   List<OrderModel> _orders = [];

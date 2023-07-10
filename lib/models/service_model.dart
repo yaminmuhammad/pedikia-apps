@@ -1,5 +1,5 @@
-import 'package:pedikia/models/category_model.dart';
-import 'package:pedikia/models/gallery_model.dart';
+import 'package:pedikia_id/models/category_model.dart';
+import 'package:pedikia_id/models/gallery_model.dart';
 
 class ServiceModel {
   late int? id;

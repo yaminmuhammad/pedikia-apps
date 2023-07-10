@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/service_model.dart';
-import 'package:pedikia/pages/detail_service_page.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/models/service_model.dart';
+import 'package:pedikia_id/pages/detail_service_page.dart';
+import 'package:pedikia_id/theme.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 

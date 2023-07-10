@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/providers/auth_provider.dart';
-import 'package:pedikia/providers/transaction_provider.dart';
-import 'package:pedikia/theme.dart';
-import 'package:pedikia/widget/loading_button.dart';
+import 'package:pedikia_id/providers/auth_provider.dart';
+import 'package:pedikia_id/providers/transaction_provider.dart';
+import 'package:pedikia_id/theme.dart';
+import 'package:pedikia_id/widget/loading_button.dart';
 import 'package:provider/provider.dart';
-import 'package:pedikia/providers/cart_provider.dart';
+import 'package:pedikia_id/providers/cart_provider.dart';
 import '../widget/checkout_card.dart';
 
 class CheckoutPage extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/service_model.dart';
-import 'package:pedikia/services/serve_service.dart';
+import 'package:pedikia_id/models/service_model.dart';
+import 'package:pedikia_id/services/serve_service.dart';
 
 class ServeProvider with ChangeNotifier {
   List<ServiceModel> _services = [];

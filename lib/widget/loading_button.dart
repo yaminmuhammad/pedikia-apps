@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/theme.dart';
 
 class LoadingButton extends StatelessWidget {
   const LoadingButton({Key? key}) : super(key: key);

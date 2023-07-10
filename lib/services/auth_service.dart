@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pedikia/models/user_model.dart';
+import 'package:pedikia_id/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pedikia/models/service_model.dart';
+import 'package:pedikia_id/models/service_model.dart';
 
 class ServeService {
   String baseUrl = "https://testing.tanpabatasgroup.com/public/api";

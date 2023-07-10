@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/service_model.dart';
-import 'package:pedikia/providers/cart_provider.dart';
-import 'package:pedikia/providers/wishlist_provider.dart';
-import 'package:pedikia/theme.dart';
+import 'package:pedikia_id/models/service_model.dart';
+import 'package:pedikia_id/providers/cart_provider.dart';
+import 'package:pedikia_id/providers/wishlist_provider.dart';
+import 'package:pedikia_id/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pedikia/models/user_model.dart';
-import 'package:pedikia/services/auth_service.dart';
+import 'package:pedikia_id/models/user_model.dart';
+import 'package:pedikia_id/services/auth_service.dart';
 
 class AuthProvider with ChangeNotifier {
   late UserModel _user;

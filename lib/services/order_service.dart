@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:pedikia/models/order_model.dart';
+import 'package:pedikia_id/models/order_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
