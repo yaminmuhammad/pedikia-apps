@@ -4,8 +4,8 @@ import 'package:pedikia_id/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
-  String baseUrl = "https://testing.tanpabatasgroup.com/public/api";
-  // String baseUrl = "http://10.0.2.2:8000/api";
+  // String baseUrl = "https://testing.tanpabatasgroup.com/public/api";
+  String baseUrl = "http://10.0.2.2:8000/api";
 
   Future<UserModel> register({
     required name,
