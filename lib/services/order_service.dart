@@ -5,8 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OrderService {
-  String baseUrl = "https://testing.tanpabatasgroup.com/public/api";
-  // String baseUrl = "http://10.0.2.2:8000/api";
+  String baseUrl = "http://10.0.2.2:8000/api";
 
   Future<List<OrderModel>> getOrder(
     String token,
